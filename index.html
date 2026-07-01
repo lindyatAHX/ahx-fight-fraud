@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fight Fraud Series — Auto Hauler Exchange</title>
+<script src="https://player.vimeo.com/api/player.js"></script>
+<style>:root{--black:#000000;--navy:#04072F;--navy-raise:#0A1144;--blue:#0026BE;--blue-bright:#1f47ff;--orange:#E89700;--orange-bright:#ffab1a;--white:#FFFFFF;--line:#1C2150;--text:#FFFFFF;--muted:#9AA0C4;--muted-dim:#646a96;--cond:'Good Pro Xcond',system-ui,sans-serif;--semi:'Good Pro Cond',system-ui,sans-serif;--body:'Supreme',system-ui,sans-serif;--maxw:1280px;}*{box-sizing:border-box;margin:0;padding:0}html,body{background:var(--black);color:var(--text);font-family:var(--body);-webkit-font-smoothing:antialiased;line-height:1.5}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}:focus-visible{outline:2px solid var(--orange);outline-offset:2px}.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}.btn{font-family:var(--cond);font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase;padding:14px 24px;border-radius:0;display:inline-block;transition:transform .1s ease,background .15s,border-color .15s,color .15s;line-height:1;cursor:pointer}.btn:active{transform:translateY(1px)}.btn-orange{background:var(--orange);color:var(--black)}.btn-orange:hover{background:var(--orange-bright)}.btn-blue{background:var(--blue);color:var(--white)}.btn-blue:hover{background:var(--blue-bright)}.btn-outline{border:1.5px solid var(--white);color:var(--white)}.btn-outline:hover{border-color:var(--orange);color:var(--orange)}.btn-outline-orange{border:1.5px solid var(--orange);color:var(--orange)}.btn-outline-orange:hover{background:var(--orange);color:var(--black)}.btn-lg{padding:16px 28px;font-size:17px}.btn-sm{padding:9px 16px;font-size:13px}.type-texture{position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:.05}.type-texture .tx-row{white-space:nowrap;font-family:var(--cond);font-weight:800;font-size:30px;letter-spacing:.06em;color:#fff;line-height:1.9;text-transform:uppercase}.type-texture .tx-inner{transform:rotate(-18deg) translate(-6%,-12%);width:140%}.progress-bar{background:var(--navy);border-bottom:1px solid var(--line);padding:10px 24px;display:flex;align-items:center;justify-content:flex-end;gap:12px}.progress-bar .pill{font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:14px;color:var(--white);background:rgba(255,255,255,.06);border:1px solid var(--line);padding:7px 13px;white-space:nowrap}.progress-bar .pill b{color:var(--orange);font-weight:700}.view{display:none;animation:fade .3s ease both}.view.active{display:block}@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}.hero{position:relative;background:var(--black);padding:72px 0 46px;overflow:hidden}.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:center}.hero-text{max-width:52ch}.eyebrow{font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:15px;color:var(--orange);margin-bottom:18px;display:flex;align-items:center;gap:12px}.eyebrow::before{content:"";width:26px;height:11px;background:var(--orange)}.hero h1{font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:clamp(48px,8vw,96px);line-height:.9;letter-spacing:-.01em}.hero h1 em{font-style:normal;color:var(--orange)}.hero .lede{margin-top:22px;max-width:56ch;font-size:17px;color:var(--muted)}.hero .by{margin-top:24px;display:flex;align-items:center;gap:12px;font-size:15px;color:var(--muted)}.hero .by .dot{width:42px;height:42px;background:var(--navy);border:1px solid var(--line);display:grid;place-items:center;font-family:var(--cond);font-weight:800;color:var(--orange);font-size:16px}.hero .by b{color:var(--white);font-weight:600}.intro-player{position:relative;width:100%;max-width:320px;border:1px solid var(--line);background:#000;overflow:hidden}.intro-player::after{content:"FIGHT FRAUD SERIES";position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.88));padding:28px 16px 14px;font-family:var(--cond);font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:14px;color:var(--orange);pointer-events:none}.intro-player iframe{display:block;width:100%;border:none}.paths{display:flex;gap:0;margin-top:40px;position:relative;z-index:2;border:1px solid var(--line)}.path-card{flex:1 1 50%;background:var(--navy);padding:26px 26px 28px}.path-card+.path-card{border-left:1px solid var(--line)}.path-card .pk{font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--muted-dim);margin-bottom:10px}.path-card h3{font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:24px;letter-spacing:-.005em;margin-bottom:8px;line-height:1}.path-card p{font-size:14.5px;color:var(--muted);margin-bottom:20px;min-height:42px}.path-card .btn{width:100%;text-align:center}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:1px}.stat{background:var(--navy);padding:24px 26px}.stat .n{font-family:var(--cond);font-weight:800;font-size:46px;line-height:1;color:var(--white)}.stat .n span{color:var(--orange)}.stat .l{font-family:var(--semi);font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.2}.track{padding:54px 0 80px;background:var(--black)}.track-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:6px;flex-wrap:wrap}.track h2{font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:34px;letter-spacing:-.005em}.track h2 em{font-style:normal;color:var(--orange)}.track .count{font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:15px;color:var(--muted)}.track .sub{color:var(--muted);font-size:15px;margin-bottom:26px;max-width:62ch}.ep-list{border:1px solid var(--line)}.ep-row{display:grid;grid-template-columns:58px 1fr auto;gap:18px;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .14s}.ep-row:last-child{border-bottom:none}.ep-row:hover{background:var(--navy)}.ep-row.active-row{background:rgba(232,151,0,.06);box-shadow:inset 4px 0 0 var(--orange)}.ep-num{font-family:var(--cond);font-weight:800;font-size:24px;color:var(--orange);line-height:1}.ep-main h4{font-family:var(--cond);font-weight:700;text-transform:uppercase;font-size:19px;letter-spacing:.005em;line-height:1.05}.ep-main p{font-size:14px;color:var(--muted);margin-top:5px;max-width:64ch;line-height:1.45}.ep-right{display:flex;align-items:center;gap:18px}.ep-dur{font-family:var(--cond);font-weight:600;font-size:15px;color:var(--muted-dim);letter-spacing:.03em}.check{width:28px;height:28px;border:1.5px solid var(--line);display:grid;place-items:center;flex:none;transition:.2s}.check svg{width:14px;height:14px;opacity:0;transform:scale(.5);transition:.2s}.ep-row.done .check{background:var(--blue);border-color:var(--blue)}.ep-row.done .check svg{opacity:1;transform:scale(1)}.ep-row.done .ep-num{color:var(--blue-bright)}.ep-row.done h4{color:var(--muted)}.cert-strip{margin-top:30px;background:var(--navy);border:1px solid var(--line);padding:28px;display:flex;gap:22px;align-items:center;justify-content:space-between;flex-wrap:wrap;position:relative;overflow:hidden}.cert-strip .ct-txt{position:relative;z-index:2}.cert-strip .ct-txt h3{font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:22px}.cert-strip .ct-txt p{font-size:14.5px;color:var(--muted);margin-top:6px;max-width:54ch}.cert-strip>div:last-child{position:relative;z-index:2}.cert-strip.locked{opacity:.72}.lockwrap{display:flex;align-items:center;gap:9px;font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:14px;color:var(--muted)}.epview{padding:34px 0 90px;display:grid;grid-template-columns:300px 1fr;gap:36px;align-items:start}.sidebar{position:sticky;top:92px;background:var(--navy);border:1px solid var(--line)}.sidebar .sb-head{padding:14px 18px;border-bottom:1px solid var(--line);font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}.sb-progress{font-family:var(--cond);font-weight:800;color:var(--orange)}.sb-item{display:flex;gap:12px;align-items:center;padding:12px 18px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .14s}.sb-item:last-child{border-bottom:none}.sb-item:hover{background:var(--navy-raise)}.sb-item.current{background:rgba(232,151,0,.1);box-shadow:inset 4px 0 0 var(--orange)}.sb-item .sb-n{font-family:var(--cond);font-weight:800;font-size:14px;color:var(--muted-dim);width:20px;flex:none}.sb-item.current .sb-n{color:var(--orange)}.sb-item .sb-t{font-family:var(--cond);font-weight:600;text-transform:uppercase;font-size:13px;line-height:1.2;letter-spacing:.01em;flex:1}.sb-item .sb-ck{width:18px;height:18px;border:1.5px solid var(--line);margin-left:auto;flex:none;display:grid;place-items:center;transition:.2s}.sb-item.done .sb-ck{background:var(--blue);border-color:var(--blue)}.sb-item .sb-ck svg{width:9px;height:9px;opacity:0}.sb-item.done .sb-ck svg{opacity:1}.player-wrap{position:relative;width:100%;max-width:380px;margin:0 auto;background:#000;border:1px solid var(--line)}.player-wrap iframe{display:block;width:100%;border:none}.ep-tag{margin-top:24px;font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:14px;color:var(--orange)}.epview h2{font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:30px;letter-spacing:-.01em;margin:6px 0 14px;line-height:1}.epview .desc{color:var(--muted);font-size:15.5px;max-width:64ch;line-height:1.55}.takeaways{margin-top:26px;background:var(--navy);border:1px solid var(--line);padding:22px 24px}.takeaways .tk-head{font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:10px}.takeaways .tk-head::before{content:"";width:20px;height:8px;background:var(--orange)}.tk-item{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}.tk-item:last-child{border-bottom:none}.tk-bullet{width:6px;height:6px;background:var(--orange);flex:none;margin-top:7px}.tk-item p{font-size:15px;color:var(--text);line-height:1.5}.quote{margin-top:22px;border-left:3px solid var(--orange);background:rgba(232,151,0,.06);padding:18px 22px}.quote p{font-size:16px;color:#dfe2f5;font-style:italic;line-height:1.6}.quote cite{display:block;margin-top:10px;font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--orange);font-style:normal}.ep-foot{margin-top:28px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:22px;border-top:1px solid var(--line)}.ep-foot-left{display:flex;align-items:center;gap:12px}.ep-nav{display:flex;gap:10px}.complete-note{font-size:13px;color:var(--muted);font-family:var(--semi);font-weight:600}.quiz{padding:50px 0 90px;max-width:740px;margin:0 auto}.quiz .eyebrow{justify-content:flex-start}.quiz h2{font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:40px;letter-spacing:-.01em;margin-bottom:8px;line-height:.96}.quiz .intro{color:var(--muted);margin-bottom:30px;font-size:16px}.q{background:var(--navy);border:1px solid var(--line);padding:22px 22px 12px;margin-bottom:14px}.q .qn{font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:var(--orange);margin-bottom:8px}.q h4{font-family:var(--cond);font-weight:700;text-transform:uppercase;font-size:19px;margin-bottom:15px;line-height:1.15;letter-spacing:.005em}.opt{display:flex;gap:12px;align-items:flex-start;padding:13px 15px;border:1px solid var(--line);margin-bottom:10px;cursor:pointer;transition:.12s;font-size:15px}.opt:hover{border-color:var(--muted-dim);background:rgba(255,255,255,.02)}.opt.sel{border-color:var(--orange);background:rgba(232,151,0,.08)}.opt.correct{border-color:#3FB984;background:rgba(63,185,132,.08)}.opt.wrong{border-color:#ff6b6b;background:rgba(255,107,107,.08)}.opt .mk{width:18px;height:18px;border:1.5px solid var(--muted-dim);flex:none;margin-top:2px;transition:.15s}.opt.sel .mk{border-color:var(--orange);background:var(--orange);box-shadow:inset 0 0 0 3px var(--navy)}.quiz-foot{margin-top:22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}.quiz-msg{font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:16px}.quiz-msg.bad{color:#ff8c6b}.quiz-msg.good{color:#5fd1ff}.certview{padding:54px 0 90px}.cert-shell{max-width:780px;margin:0 auto}.certificate{position:relative;background:var(--navy);border:1px solid var(--line);padding:54px 56px;overflow:hidden}.certificate .type-texture{opacity:.05}.certificate::before{content:"";position:absolute;inset:14px;border:2px solid var(--orange);pointer-events:none;z-index:1}.cert-inner{position:relative;z-index:2;text-align:center}.cert-logo{display:flex;justify-content:center;align-items:center}.cert-kick{font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.22em;font-size:13px;color:var(--orange);margin:30px 0 8px}.cert-title{font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:40px;letter-spacing:-.01em;line-height:.96;margin-bottom:26px;color:#fff}.cert-awarded{font-size:14px;color:var(--muted);margin-bottom:10px}.cert-name{font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:38px;color:#fff;border-bottom:2px solid var(--orange);display:inline-block;padding:0 30px 8px;margin-bottom:26px;line-height:1}.cert-body{font-size:15px;color:var(--muted);max-width:48ch;margin:0 auto 34px;line-height:1.6}.cert-meta{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;text-align:left}.cert-sig .line{font-family:var(--cond);font-weight:700;font-style:italic;font-size:22px;color:#fff;border-bottom:1px solid var(--line);padding-bottom:5px;margin-bottom:6px}.cert-sig small,.cert-id small{font-family:var(--semi);font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:11px;color:var(--muted-dim);display:block}.cert-id{text-align:right;font-family:var(--cond);font-weight:700;letter-spacing:.06em;font-size:16px;color:var(--muted)}.cert-actions{display:flex;gap:12px;justify-content:center;margin-top:30px;flex-wrap:wrap}.name-prompt{max-width:460px;margin:0 auto;text-align:center;background:var(--navy);border:1px solid var(--line);padding:36px}.name-prompt h3{font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:28px;margin-bottom:8px}.name-prompt p{color:var(--muted);font-size:15px;margin-bottom:20px}.modal{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.82);display:none;place-items:center;padding:24px}.modal.open{display:grid;animation:fade .18s ease both}.sheet{position:relative;width:100%;max-width:440px;background:var(--navy);border:1px solid var(--line);padding:34px}.sheet::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:var(--orange)}.sheet h3{font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:26px;margin-bottom:8px}.sheet p{color:var(--muted);font-size:14.5px;margin-bottom:20px}.field{display:block;margin-bottom:14px}.field span{display:block;font-family:var(--cond);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--muted);margin-bottom:7px}input[type=text],input[type=email]{width:100%;background:var(--black);border:1px solid var(--line);color:#fff;padding:14px;font-size:16px;font-family:var(--body);transition:border-color .15s}input:focus{outline:none;border-color:var(--orange)}.err{color:#ff8c6b;font-size:13px;margin:-4px 0 12px;font-family:var(--semi);font-weight:600;min-height:0}.sheet .btn{width:100%;text-align:center;margin-top:4px}.sheet .fine{font-size:12px;color:var(--muted-dim);margin-top:14px;margin-bottom:0;line-height:1.5}.modal-x{position:absolute;top:14px;right:16px;font-size:24px;color:var(--muted);padding:4px 8px}.sec-divider{height:1px;background:var(--line);margin:0}.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,151,0,.12);border:1px solid rgba(232,151,0,.3);padding:6px 14px;margin-bottom:22px}.hero-badge span{font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:13px;color:var(--orange)}@media(max-width:860px){.epview{grid-template-columns:1fr}.sidebar{position:static;order:2}.paths{flex-direction:column}.path-card+.path-card{border-left:none;border-top:1px solid var(--line)}.hero-in{grid-template-columns:1fr;gap:32px}.intro-player{width:min(320px,100%);margin:0 auto}.player-wrap{max-width:100%}}@media(max-width:560px){.stats{grid-template-columns:1fr}.ep-row{grid-template-columns:46px 1fr auto}.ep-dur{display:none}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}</style>
+</head>
+<body>
+<div class="progress-bar" id="status"></div>
+<main><!-- ===================== HUB ===================== -->
+<section class="view active" id="view-hub">
+<div class="hero"><div class="type-texture" data-texture></div><div class="wrap hero-in"><div class="hero-text"><div class="hero-badge"><span>Fight Fraud Series · Free Masterclass</span></div><h1>Fraud is coming for your inventory. <em>Learn to shut it down.</em></h1><p class="lede">Eight straight-talking sessions with AHX COO Dana Randazzo — the schemes hitting dealers right now, the red flags that catch them, and the controls that keep your vehicles from vanishing.</p><div class="by"><span>Hosted by <b>Dana Randazzo</b> · COO, Auto Hauler Exchange</span></div></div><div class="intro-player"><div id="intro-vimeo-mount"></div></div></div>
+</div><div class="wrap"><div class="paths"><div class="path-card"><div class="pk">No signup required</div><h3>Just watch</h3><p>Open access to all eight sessions. Nothing to fill out — watch free.</p><button class="btn btn-outline" data-action="open-ep" data-ep="0">Start watching</button></div><div class="path-card"><div class="pk">Earn the certificate</div><h3>Track &amp; get certified</h3><p>Add your email to save your place across devices and earn a Fraud Prevention certificate.</p><button class="btn btn-orange" data-action="ask-email">Enter email to track</button></div></div><div class="stats"><div class="stat"><div class="n">30<span>%</span></div><div class="l">Carrier approval rate — most never get in</div></div><div class="stat"><div class="n">99<span>%</span></div><div class="l">Delivery rate across the marketplace</div></div><div class="stat"><div class="n">5,500<span>+</span></div><div class="l">Vetted carriers on the platform</div></div></div>
+</div><div class="track"><div class="wrap"><div class="track-head"><h2>The <em>series</em></h2><span class="count" id="trackCount">0 / 8 complete</span></div><p class="sub">Eight sessions, each one building the next layer of defense. Take them in order.</p><div class="ep-list" id="epList"></div><div class="cert-strip locked" id="certStrip"><div class="type-texture" data-texture></div><div class="ct-txt"><h3>Completion certificate</h3><p id="certStripMsg">Finish all eight sessions, then pass a short knowledge check to earn your Fraud Prevention certificate and the downloadable Vehicle Release Checklist.</p></div><div id="certStripAction"><div class="lockwrap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            Locked until 8 / 8 complete
+          </div></div></div></div>
+</div>
+</section><!-- ===================== EPISODE ===================== -->
+<section class="view" id="view-ep">
+<div class="wrap"><div class="epview"><aside class="sidebar" id="sidebar"></aside><div class="epmain"><div class="player-wrap" id="playerWrap"><iframe id="ytPlayer" width="380" height="675"
+            src="" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen title="Fight Fraud Series Episode"></iframe></div><div class="ep-tag" id="epTag"></div><h2 id="epTitle"></h2><p class="desc" id="epDesc"></p><div class="takeaways" id="epTakeaways"></div><div class="quote" id="epQuote"></div><div class="ep-foot"><div class="ep-foot-left"><button class="btn btn-orange" id="completeBtn" data-action="complete"></button><span class="complete-note" id="completeNote"></span></div><div class="ep-nav"><button class="btn btn-outline btn-sm" data-action="prev">← Prev</button><button class="btn btn-outline btn-sm" data-action="next">Next →</button></div></div></div></div>
+</div>
+</section><!-- ===================== QUIZ ===================== -->
+<section class="view" id="view-quiz">
+<div class="wrap"><div class="quiz"><div class="eyebrow">Knowledge check</div><h2>Earn your certificate</h2><p class="intro">Answer at least four of five correctly. Every answer came straight from the sessions with Dana.</p><div id="quizBody"></div><div class="quiz-foot"><button class="btn btn-orange btn-lg" data-action="grade">Submit answers</button><span class="quiz-msg" id="quizMsg"></span></div></div>
+</div>
+</section><!-- ===================== CERTIFICATE ===================== -->
+<section class="view" id="view-cert">
+<div class="wrap"><div class="certview"><div class="cert-shell" id="certShell"></div></div></div>
+</section></main>
+<!-- CERT PROMPT MODAL (shown when just-watch user finishes all 8) -->
+<div class="modal" id="certPromptModal">
+<div class="sheet"><h3>You finished the series.</h3><p>Enter your details to take the knowledge check and earn your Fraud Prevention certificate and Vehicle Release Checklist.</p><label class="field"><span>Email address</span><input type="email" id="certEmailInput" placeholder="you@dealership.com" autocomplete="email"></label><label class="field"><span>First name</span><input type="text" id="certFirstInput" placeholder="Jordan"></label><label class="field"><span>Last name</span><input type="text" id="certLastInput" placeholder="Vega"></label><div class="err" id="certPromptErr"></div><button class="btn btn-orange" data-action="submit-cert-prompt" style="width:100%;text-align:center">Get my certificate</button><p class="fine" style="margin-top:14px">Or <button style="background:none;border:none;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:12px;padding:0" data-action="skip-cert-prompt">skip and go back to the series</button></p>
+</div>
+</div>
+<div class="modal" id="emailModal">
+<div class="sheet"><button class="modal-x" data-action="close-modal" aria-label="Close">×</button><h3 id="modalTitle">Save your progress</h3><p id="modalSub">Enter your email to track your progress and earn your Fraud Prevention certificate. Your progress is also saved in this browser.</p><label class="field"><span>Email address</span><input type="email" id="emailInput" placeholder="you@dealership.com" autocomplete="email"></label><div class="err" id="emailErr"></div><button class="btn btn-orange" data-action="submit-email">Save &amp; continue</button><p class="fine">Your email will be used to save your progress and issue your certificate. We may also send you relevant fraud prevention content from Auto Hauler Exchange.</p>
+</div>
+</div><script>const HS = {
+portal: '46270417',
+forms: {
+accountCreated: '30c794a9-2d60-4795-99ae-4de2d9f974ba',
+episodeCompleted: 'e521e3bb-b834-45ea-844b-f8b2db7cd388',
+certificateEarned: '287a4766-16f1-436f-930b-c951d7713ec0'
+}
+};
+function hsSubmit(formId, fields) {
+const body = {
+fields: Object.entries(fields).map(([name, value]) => ({ name, value: String(value) })),
+context: { pageUri: window.location.href, pageName: 'Fight Fraud Series Masterclass' }
+};
+fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${HS.portal}/${formId}`, {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify(body)
+}).catch(err => console.warn('HubSpot submit error:', err));
+}
+function hsAccountCreated(email) {
+const now = new Date().toISOString().split('T')[0]; 
+hsSubmit(HS.forms.accountCreated, {
+email,
+fight_fraud_account_created: now,
+fight_fraud_episodes_completed: '0',
+fight_fraud_current_episode: '1',
+fight_fraud_last_active: now
+});
+}
+function hsEpisodeCompleted(email, episodesCompleted, currentEpisode) {
+if (!email) return;
+const now = new Date().toISOString().split('T')[0];
+hsSubmit(HS.forms.episodeCompleted, {
+email,
+fight_fraud_episodes_completed: String(episodesCompleted),
+fight_fraud_current_episode: String(currentEpisode),
+fight_fraud_last_active: now
+});
+}
+function hsCertificateEarned(email, firstName, lastName) {
+if (!email) return;
+const now = new Date().toISOString().split('T')[0];
+hsSubmit(HS.forms.certificateEarned, {
+email,
+firstname: firstName,
+lastname: lastName,
+fight_fraud_quiz_passed: 'true',
+fight_fraud_certificate_earned: now,
+fight_fraud_last_active: now
+});
+}
+const EPISODES = [
+{
+t: "The Rising Risk of Transport Fraud",
+vid: 1206179931,
+dur: "1:45",
+d: "Overall cargo theft in the U.S. is up 1,500% from 2021. Dana breaks down the three schemes driving the surge — and what fraud really costs beyond the vehicle.",
+quote: "The vehicle is the headline loss. The hidden losses — the floorplan interest, the lost sale, the customer who already bought that car — those are what hurt for months.",
+takeaways: [
+"Bad actors impersonate legitimate carriers by stealing logins or purchasing valid MC numbers.",
+"Double-brokering: the carrier re-sells your load to another carrier who delivers to a fake address.",
+"Fraudsters scrape load boards and dealer sites to build convincing fake pickup scenarios.",
+"A fraud incident costs far more than the vehicle — floorplan interest, lost sales, staff time, and insurance friction add up."
+]
+},
+{
+t: "Double-Brokering Explained",
+vid: 1206180692,
+dur: "2:46",
+d: "The most common fraud scheme — designed to look legitimate at every step. Dana explains how a load gets secretly re-sold and where your vehicle ends up.",
+quote: "It is extremely important that the owner of this vehicle is in clear communication with that releasing dealership or releasing auction. They need to know where the delivery location is.",
+takeaways: [
+"Never release a vehicle to a driver who does not have the full 17-digit VIN.",
+"The owner must communicate the delivery address directly to the releasing location — don't assume the carrier passed it along.",
+"Google the delivery address on the carrier's BOL. A house far from the buyer is a red flag.",
+"If the dispatcher goes unreachable on pickup day, treat it as a red flag."
+]
+},
+{
+t: "Identity Spoofing & Fake Carrier Profiles",
+vid: 1206181230,
+dur: "2:03",
+d: "AI makes fake carrier documentation easy. Dana covers how fraudsters steal carrier identities and what to verify before releasing any vehicle.",
+quote: "Never release a vehicle where it almost matches. Use a single checklist. If someone's out — maybe your day-to-day person is missing for the day — make sure there's a checklist there so it's easy for everyone to follow.",
+takeaways: [
+"The DOT on the paperwork must match the DOT on the truck exactly. Paperwork must include the full 17-digit VIN.",
+"Logos and formatting on fake paperwork can look slightly off. Make sure your pickup location has all the correct carrier details before the vehicle is released.",
+"Communicate all carrier details to the pickup location before the vehicle is released — driver name, company name, dispatcher name, and phone numbers.",
+"Have a single checklist at every release location. If your day-to-day person is out, anyone should be able to follow it. Never release a vehicle where the information almost matches — almost is not a match."
+]
+},
+{
+t: "Payment Fraud & Fake Damage Claims",
+vid: 1206181840,
+dur: "1:14",
+d: "Payment fraud hits after the vehicle is moving. Dana covers hostage vehicles, fake damage claims, and the payment practices that make dealers easy targets.",
+quote: "One of them is just a straight-up hostage vehicle. They won't give you the vehicle until you pay more.",
+takeaways: [
+"Hostage vehicle: a carrier refuses to release your car at delivery until you pay above the agreed rate.",
+"Fake damage claims: a carrier damages the vehicle and claims it was pre-existing. Defense: timestamped pickup photos on the BOL.",
+"Never accept Zelle, Venmo, cash, or COD at pickup or delivery — no enforceable trail.",
+"On AHX, payment runs through the platform. Shippers never pay carriers directly."
+]
+},
+{
+t: "Verifying Carriers the Right Way",
+vid: 1206184331,
+dur: "1:42",
+d: "A one-time check is not vetting. Dana covers FMCSA verification, AHX's 30% approval rate, and why continuous monitoring is the real defense.",
+quote: "You may have found a carrier you work great with. Everything is good. But things happen — insurance falls off, insurance coverage lapses. You wanna make sure you're working with a company that has continuous monitoring.",
+takeaways: [
+"Verify carrier authority and safety ratings at safer.fmcsa.dot.gov — check status, safety rating, inspection history, and authority age.",
+"Request a COI. AHX uses a third-party system to verify insurance and checks where coverage emails originate.",
+"AHX approves ~30% of applicants — 180 days active authority, ELD connections, clean safety ratings, ~150 checks.",
+"AHX continuously monitors carriers and automatically pauses any whose insurance lapses or drops below thresholds."
+]
+},
+{
+t: "Red Flags in Communication & Dispatch",
+vid: 1206185326,
+dur: "2:05",
+d: "Fraud announces itself before a vehicle moves. Dana covers six communication red flags and the questions fraudsters can't answer.",
+quote: "If you're getting conflicting pickup times, that's an immediate red flag. If the dispatcher goes unresponsive for the day of pickup — these are red flags that the fraud has already occurred or is about to happen.",
+takeaways: [
+"Conflicting dispatcher/driver info or an ETA that keeps shifting all day signals something is wrong.",
+"A carrier who books and quickly cancels may be fishing for load details to use in a fraudulent pickup.",
+"A driver without the full VIN, or who rushes you through the release, is a red flag.",
+"Ask: truck DOT, driver name, delivery address. Legitimate dispatchers answer all three immediately."
+]
+},
+{
+t: "What to Do When a Transport Goes Wrong",
+vid: 1206187036,
+dur: "2:32",
+d: "If a vehicle goes missing, who do you call? Dana covers exactly what to do — including one critical detail most people don't know about OnStar.",
+quote: "You can't rely on a third party. You can't rely on the releasing dealership or the releasing auction. It's really gotta be you getting in touch with local law enforcement.",
+takeaways: [
+"Call your transport provider first — AHX support can verify carrier details and check real-time tracking.",
+"You, as the vehicle owner, must file the law enforcement report. No one else can do it for you.",
+"Only the vehicle owner can contact OnStar to initiate tracking — not your broker or the releasing location.",
+"Report to FMCSA, your insurer, and the carrier's insurer. Preserve BOL, emails, photos, and all carrier contact details."
+]
+},
+{
+t: "Building Fraud Controls Into Your Operation",
+vid: 1206187786,
+dur: "2:26",
+d: "Fraud prevention built on one person fails when they're out. Dana covers fraud control checklists, the most common communication gap, and how dealer groups standardize protection.",
+quote: "If you feel uncomfortable releasing a vehicle — you can always deny that carrier. You do not have to release those vehicles. You have a hand in there and you can really stop the fraud before it happens.",
+takeaways: [
+"Run the same checklist every time: verify DOT, photograph driver's license, confirm gate pass, confirm delivery location — before handing over keys.",
+"Most common gap: the buyer doesn't communicate the delivery address to the releasing location directly.",
+"For dealer groups: the weakest store is your real exposure. One group-level standard and posted checklist closes the gap.",
+"On AHX, shippers see carrier, DOT, COI, driver name, and driver phone — visibility that removes the anonymity fraud requires."
+]
+}
+];
+const QUIZ = [
+{
+q: "According to Dana, what should you NEVER do when releasing a vehicle to a carrier?",
+o: [
+"Call the carrier to confirm the pickup time",
+"Release a vehicle to a driver who only has the year, make, and model — not the full 17-digit VIN",
+"Take a photo of the driver's license",
+"Ask the driver where the vehicle is delivering"
+], a: 1
+},
+{
+q: "Why does double-brokering increase the risk of vehicle theft?",
+o: [
+"Because the carrier who booked the load is always a bad actor",
+"Because the vehicle always ends up stolen when a load is double-brokered",
+"Because you don't have the correct carrier information, they aren't holding the insurance, and you can't track the vehicle",
+"Because double-brokering is illegal and carriers who do it are unvetted"
+], a: 2
+},
+{
+q: "If you suspect a vehicle has been stolen in transport, who must contact law enforcement?",
+o: [
+"The releasing dealership or auction",
+"Your broker or transport provider",
+"You, as the vehicle owner — no one else can do this for you",
+"The carrier's insurance company"
+], a: 2
+},
+{
+q: "What percentage of carriers that apply actually get approved by Auto Hauler Exchange?",
+o: ["About 70%", "About 50%", "About 30%", "About 10%"], a: 2
+},
+{
+q: "Dana says fraud prevention must be structural, not heroic. What does that mean in practice?",
+o: [
+"Hire one very experienced dispatcher to handle all transport decisions",
+"Post a physical checklist at every release location that any employee follows the same way every time",
+"Only work with carriers you have used more than five times before",
+"Call your broker before releasing any vehicle"
+], a: 1
+}
+];
+const STORAGE_KEY = 'ahx_ff_progress';
+function loadLocalState() {
+try {
+const saved = localStorage.getItem(STORAGE_KEY);
+if (saved) return JSON.parse(saved);
+} catch(e) {}
+return null;
+}
+function saveLocalState() {
+try {
+localStorage.setItem(STORAGE_KEY, JSON.stringify({
+email: state.email,
+firstName: state.firstName,
+lastName: state.lastName,
+completed: state.completed,
+quizPassed: state.quizPassed
+}));
+} catch(e) {}
+}
+let state = {
+email: null,
+firstName: null,
+lastName: null,
+completed: [],
+quizPassed: false,
+current: 0
+};
+const _saved = loadLocalState();
+if (_saved) {
+state.email = _saved.email || null;
+state.firstName = _saved.firstName || null;
+state.lastName = _saved.lastName || null;
+state.completed = _saved.completed || [];
+state.quizPassed = !!_saved.quizPassed;
+}
+let quizAnswers = {};
+const $ = s => document.querySelector(s);
+function isDone(i){ return state.completed.includes(i); }
+function allDone(){ return state.completed.length === EPISODES.length; }
+function persist(){
+saveLocalState();
+}
+function show(v){
+if(v !== 'ep') pauseEpisodePlayer();
+document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+document.getElementById('view-'+v).classList.add('active');
+requestAnimationFrame(function() {
+requestAnimationFrame(function() {
+window.scrollTo({ top: 0, behavior: 'instant' });
+});
+});
+}
+let introPlayer = null;
+let episodePlayer = null;
+function mountIntroPlayer() {
+const el = document.getElementById('intro-vimeo-mount');
+if (!el) return;
+introPlayer = new Vimeo.Player('intro-vimeo-mount', {
+id: 1206175514,
+width: 320,
+responsive: true,
+portrait: true,
+title: false,
+byline: false,
+badge: false,
+autopause: false
+});
+}
+function mountEpisodePlayer(i) {
+const ep = EPISODES[i];
+const wrap = document.getElementById('playerWrap');
+wrap.innerHTML = '<div id="ep-vimeo-mount"></div>';
+episodePlayer = new Vimeo.Player('ep-vimeo-mount', {
+id: ep.vid,
+width: 380,
+responsive: true,
+portrait: true,
+title: false,
+byline: false,
+badge: false,
+autopause: false
+});
+episodePlayer.on('ended', function() {
+autoComplete();
+});
+episodePlayer.on('play', function() {
+startWatchTracking();
+});
+}
+function autoComplete(){
+const i = state.current;
+if(isDone(i)) return;
+state.completed.push(i);
+persist();
+hsEpisodeCompleted(
+state.email,
+state.completed.length,
+Math.min(i + 2, EPISODES.length)
+);
+renderStatus();
+renderHub();
+updateCompleteBtn();
+renderSidebar();
+}
+function renderStatus(){
+const el = $('#status');
+if(state.email){
+el.innerHTML = `<span class="pill">${state.email}</span><span class="pill"><b>${state.completed.length}</b> / 8 done</span>`;
+} else {
+el.innerHTML = `<button class="btn btn-orange btn-sm" data-action="ask-email">Track &amp; get certified</button>`;
+}
+}
+function renderHub(){
+$('#trackCount').textContent = `${state.completed.length} / 8 complete`;
+$('#epList').innerHTML = EPISODES.map((e,i) => `
+<div class="ep-row ${isDone(i)?'done':''}" data-action="open-ep" data-ep="${i}">
+<div class="ep-num">${String(i+1).padStart(2,'0')}</div>
+<div class="ep-main">
+<h4>${e.t}</h4>
+<p>${e.d.split('.')[0]}.</p>
+</div>
+<div class="ep-right">
+<span class="ep-dur">${e.dur}</span>
+<span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M5 13l4 4L19 7"/></svg></span>
+</div>
+</div>`).join('');
+const strip = $('#certStrip');
+const action = $('#certStripAction');
+if(state.quizPassed){
+strip.classList.remove('locked');
+$('#certStripMsg').textContent = "You've earned it — your certificate is ready.";
+action.innerHTML = `<button class="btn btn-orange" data-action="goto-cert">View certificate</button>`;
+} else if(allDone()){
+strip.classList.remove('locked');
+$('#certStripMsg').textContent = "All eight sessions complete. Pass the knowledge check to earn your certificate and the Vehicle Release Checklist.";
+action.innerHTML = `<button class="btn btn-orange" data-action="goto-quiz">Take the knowledge check</button>`;
+} else {
+strip.classList.add('locked');
+$('#certStripMsg').textContent = "Complete all eight sessions and pass the knowledge check to earn your certificate.";
+action.innerHTML = `<div class="lockwrap">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+${state.completed.length} / 8 — locked until complete
+</div>`;
+}
+buildTextures();
+}
+function renderSidebar(){
+$('#sidebar').innerHTML = `
+<div class="sb-head">
+<span>The Series</span>
+<span class="sb-progress">${state.completed.length}/8</span>
+</div>` +
+EPISODES.map((e,i) => `
+<div class="sb-item ${i===state.current?'current':''} ${isDone(i)?'done':''}" data-action="open-ep" data-ep="${i}">
+<span class="sb-n">${String(i+1).padStart(2,'0')}</span>
+<span class="sb-t">${e.t}</span>
+<span class="sb-ck"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M5 13l4 4L19 7"/></svg></span>
+</div>`).join('');
+}
+let watchedSeconds = 0;
+let watchInterval = null;
+const MIN_WATCH_SECONDS = 20;
+function startWatchTracking() {
+clearInterval(watchInterval);
+watchedSeconds = 0;
+updateCompleteBtn();
+watchInterval = setInterval(function() {
+if (!episodePlayer) return;
+episodePlayer.getPaused().then(function(paused) {
+if (!paused) {
+watchedSeconds++;
+if (watchedSeconds === MIN_WATCH_SECONDS) {
+updateCompleteBtn(); 
+}
+}
+}).catch(function() {});
+}, 1000);
+}
+function hasWatchedEnough() {
+return isDone(state.current) || watchedSeconds >= MIN_WATCH_SECONDS;
+}
+function updateCompleteBtn(){
+const i = state.current;
+const btn = $('#completeBtn');
+const note = $('#completeNote');
+if(isDone(i)){
+btn.textContent = '✓ Session Complete';
+btn.className = 'btn btn-outline-orange';
+btn.disabled = false;
+note.textContent = i < EPISODES.length-1 ? 'Next session ready →' : 'All done — take the knowledge check';
+} else if(hasWatchedEnough()){
+btn.textContent = 'Mark as complete';
+btn.className = 'btn btn-orange';
+btn.disabled = false;
+note.textContent = 'Auto-completes when video ends';
+} else {
+btn.textContent = 'Mark as complete';
+btn.className = 'btn btn-orange';
+btn.disabled = true;
+btn.style.opacity = '0.4';
+note.textContent = 'Watch to unlock';
+}
+if (!btn.disabled) btn.style.opacity = '';
+}
+function renderEpisode(){
+const i = state.current;
+const e = EPISODES[i];
+mountEpisodePlayer(i);
+$('#epTag').textContent = `Episode ${String(i+1).padStart(2,'0')} of 8 · ${e.dur}`;
+$('#epTitle').textContent = e.t;
+$('#epDesc').textContent = e.d;
+$('#epTakeaways').innerHTML = `
+<div class="tk-head">Key takeaways</div>
+${e.takeaways.map(tk => `<div class="tk-item"><div class="tk-bullet"></div><p>${tk}</p></div>`).join('')}`;
+$('#epQuote').innerHTML = `<p>${e.quote}</p><cite>— Dana Randazzo, COO · Auto Hauler Exchange</cite>`;
+updateCompleteBtn();
+renderSidebar();
+}
+function renderQuiz(){
+quizAnswers = {};
+$('#quizBody').innerHTML = QUIZ.map((item,qi) => `
+<div class="q">
+<div class="qn">Question ${qi+1} of ${QUIZ.length}</div>
+<h4>${item.q}</h4>
+${item.o.map((opt,oi) => `
+<div class="opt" data-action="pick" data-q="${qi}" data-o="${oi}">
+<span class="mk"></span><span>${opt}</span>
+</div>`).join('')}
+</div>`).join('');
+$('#quizMsg').textContent = '';
+}
+function renderCert(){
+const shell = $('#certShell');
+const fullName = [state.firstName, state.lastName].filter(Boolean).join(' ');
+if(!state.firstName){
+shell.innerHTML = `<div class="name-prompt">
+<h3>Almost there</h3>
+<p>What name should appear on your certificate?</p>
+<label class="field"><span>First name</span><input type="text" id="firstNameInput" placeholder="Jordan"></label>
+<label class="field"><span>Last name</span><input type="text" id="lastNameInput" placeholder="Vega"></label>
+<div class="err" id="nameErr"></div>
+<button class="btn btn-orange" data-action="save-name" style="width:100%;text-align:center">Generate my certificate</button>
+</div>`;
+return;
+}
+const cid = 'AHX-FP-' + Math.abs(hash(state.email||fullName)).toString(36).toUpperCase().slice(0,6);
+const today = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+shell.innerHTML = `
+<div class="certificate"><div class="type-texture" data-texture></div><div class="cert-inner">
+<div class="cert-logo"><img src="https://uploads-ssl.webflow.com/67085f7df6d68f752c924add/ahe-logo-horizontal-v2-wht.svg" style="height:38px;width:auto;display:block;margin:0 auto" alt="AHX"></div>
+<div class="cert-kick">Certificate of Completion</div>
+<div class="cert-title">Fraud Prevention in<br>Vehicle Transportation</div>
+<div class="cert-awarded">This certifies that</div>
+<div><span class="cert-name">${escapeHtml(fullName)}</span></div>
+<p class="cert-body">has completed all eight sessions of the Fight Fraud Series with Dana Randazzo, COO of Auto Hauler Exchange, and passed the knowledge check.</p>
+<div class="cert-meta">
+<div class="cert-sig"><div class="line">Dana Randazzo</div><small>COO, Auto Hauler Exchange</small></div>
+<div class="cert-id">${cid}<small>Issued ${today}</small></div>
+</div>
+</div></div>
+<div class="cert-actions">
+<button class="btn btn-orange btn-lg" data-action="download-cert">Download certificate</button>
+<button class="btn btn-blue btn-lg" data-action="linkedin-cert">Add to LinkedIn</button>
+<button class="btn btn-blue btn-lg" data-action="get-playbook">Get the Vehicle Release Checklist</button>
+<button class="btn btn-outline btn-lg" data-action="home">Back to series</button>
+</div>`;
+buildTextures();
+}
+function pauseEpisodePlayer(){
+if(episodePlayer){
+episodePlayer.pause().catch(function(){});
+}
+}
+function openEp(i){
+state.current = i;
+watchedSeconds = 0;
+clearInterval(watchInterval);
+renderEpisode();
+show('ep');
+requestAnimationFrame(function() {
+requestAnimationFrame(function() {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+});
+}
+function manualComplete(){
+if(!hasWatchedEnough()) return;
+autoComplete();
+const i = state.current;
+if(i < EPISODES.length - 1){
+openEp(i + 1);
+} else {
+pauseEpisodePlayer();
+if(state.email){
+renderQuiz();
+show('quiz');
+} else {
+openCertPromptModal();
+}
+requestAnimationFrame(function(){ requestAnimationFrame(function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }); });
+}
+}
+function gradeQuiz(){
+if(Object.keys(quizAnswers).length < QUIZ.length){
+$('#quizMsg').className = 'quiz-msg bad';
+$('#quizMsg').textContent = 'Please answer all five questions before submitting.';
+return;
+}
+let correct = QUIZ.reduce((n,item,qi) => n + (quizAnswers[qi] === item.a ? 1 : 0), 0);
+if(correct >= 4){
+state.quizPassed = true;
+persist();
+$('#quizMsg').className = 'quiz-msg good';
+$('#quizMsg').textContent = `${correct}/5 correct — certificate earned.`;
+setTimeout(() => { renderCert(); show('cert'); renderStatus(); renderHub(); }, 900);
+} else {
+$('#quizMsg').className = 'quiz-msg bad';
+$('#quizMsg').textContent = `${correct}/5 — you need at least 4. Review the sessions and try again.`;
+}
+}
+function openCertPromptModal(){
+$('#certPromptModal').classList.add('open');
+setTimeout(() => $('#certEmailInput').focus(), 60);
+}
+function closeCertPromptModal(){
+$('#certPromptModal').classList.remove('open');
+$('#certPromptErr').textContent = '';
+}
+function submitCertPrompt(){
+const email = $('#certEmailInput').value.trim();
+const first = $('#certFirstInput').value.trim();
+const last = $('#certLastInput').value.trim();
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+$('#certPromptErr').textContent = 'Enter a valid email address.'; return;
+}
+if(first.length < 2){ $('#certPromptErr').textContent = 'Enter your first name.'; return; }
+if(last.length < 2){ $('#certPromptErr').textContent = 'Enter your last name.'; return; }
+state.email = email;
+state.firstName = first;
+state.lastName = last;
+persist();
+hsAccountCreated(email);
+hsEpisodeCompleted(email, state.completed.length, EPISODES.length);
+closeCertPromptModal();
+renderStatus();
+renderHub();
+renderQuiz();
+show('quiz');
+}
+function openEmailModal(){ $('#emailModal').classList.add('open'); setTimeout(() => $('#emailInput').focus(), 60); }
+function closeModal(){ $('#emailModal').classList.remove('open'); $('#emailErr').textContent = ''; }
+function submitEmail(){
+const v = $('#emailInput').value.trim();
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){ $('#emailErr').textContent = 'Enter a valid email address.'; return; }
+state.email = v;
+persist();
+hsAccountCreated(v);
+closeModal();
+renderStatus();
+renderHub();
+}
+function hash(s){ let h=0; for(let i=0;i<s.length;i++){ h=((h<<5)-h)+s.charCodeAt(i); h|=0; } return h; }
+function escapeHtml(s){ return s.replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function buildTextures(){
+document.querySelectorAll('.type-texture[data-texture]').forEach(el => {
+if(el.dataset.built) return;
+const unit = 'AUTO HAULER EXCHANGE · ';
+const line = unit.repeat(14);
+let rows = '';
+for(let i=0; i<16; i++) rows += `<div class="tx-row">${line}</div>`;
+el.innerHTML = `<div class="tx-inner">${rows}</div>`;
+el.dataset.built = '1';
+});
+}
+document.addEventListener('click', ev => {
+const t = ev.target.closest('[data-action]');
+if(!t) return;
+switch(t.dataset.action){
+case 'home': renderHub(); show('hub'); break;
+case 'open-ep': openEp(parseInt(t.dataset.ep, 10)); break;
+case 'prev': if(state.current > 0) openEp(state.current - 1); break;
+case 'next':
+if(state.current < EPISODES.length - 1) openEp(state.current + 1);
+else { renderHub(); show('hub'); }
+break;
+case 'complete': manualComplete(); break;
+case 'submit-cert-prompt': submitCertPrompt(); break;
+case 'skip-cert-prompt': closeCertPromptModal(); renderHub(); show('hub'); break;
+case 'ask-email': openEmailModal(); break;
+case 'close-modal': closeModal(); break;
+case 'submit-email': submitEmail(); break;
+case 'goto-quiz': renderQuiz(); show('quiz'); break;
+case 'goto-cert': renderCert(); show('cert'); break;
+case 'grade': gradeQuiz(); break;
+case 'pick':
+quizAnswers[t.dataset.q] = parseInt(t.dataset.o, 10);
+document.querySelectorAll(`.opt[data-q="${t.dataset.q}"]`).forEach(o => o.classList.remove('sel'));
+t.classList.add('sel');
+break;
+case 'save-name': {
+const fn = $('#firstNameInput').value.trim();
+const ln = $('#lastNameInput').value.trim();
+if(fn.length < 2){ $('#nameErr').textContent = 'Please enter your first name.'; return; }
+if(ln.length < 2){ $('#nameErr').textContent = 'Please enter your last name.'; return; }
+state.firstName = fn;
+state.lastName = ln;
+persist();
+if(!state.quizPassed){
+renderQuiz();
+show('quiz');
+break;
+}
+hsCertificateEarned(state.email, fn, ln);
+renderCert();
+break;
+}
+case 'linkedin-cert': {
+const now = new Date();
+const params = new URLSearchParams({
+startTask: 'CERTIFICATION_NAME',
+name: 'Fraud Prevention in Vehicle Transportation',
+organizationId: '81948589',
+issueYear: now.getFullYear(),
+issueMonth: now.getMonth() + 1,
+certUrl: 'https://www.autohaulerexchange.com/fight-fraud'
+});
+window.open('https://www.linkedin.com/profile/add?' + params.toString(), '_blank');
+break;
+}
+alert('In the live version this generates a branded PDF certificate and delivers it to ' + (state.email || 'your email') + '.');
+break;
+case 'get-playbook':
+alert('In the live version this delivers the printable AHX Vehicle Release Checklist PDF.');
+break;
+}
+});
+$('#emailInput').addEventListener('keydown', e => { if(e.key === 'Enter') submitEmail(); });
+$('#emailModal').addEventListener('click', e => { if(e.target.id === 'emailModal') closeModal(); });
+$('#certPromptModal').addEventListener('click', e => { if(e.target.id === 'certPromptModal') closeCertPromptModal(); });
+renderStatus();
+renderHub();
+mountIntroPlayer();</script>
+</body>
+</html>
