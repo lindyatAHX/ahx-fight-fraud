@@ -534,6 +534,7 @@ shell.innerHTML = `
 <div class="cert-actions">
 <button class="btn btn-orange btn-lg" data-action="download-cert">Download certificate</button>
 <button class="btn btn-blue btn-lg" data-action="linkedin-cert">Add to LinkedIn</button>
+<button class="btn btn-outline btn-lg" data-action="linkedin-share">Share on LinkedIn</button>
 <button class="btn btn-blue btn-lg" data-action="get-playbook">Get the Vehicle Release Checklist</button>
 <button class="btn btn-outline btn-lg" data-action="home">Back to series</button>
 </div>`;
@@ -730,7 +731,12 @@ certUrl: 'https://www.autohaulerexchange.com/fight-fraud'
 window.open('https://www.linkedin.com/profile/add?' + params.toString(), '_blank');
 break;
 }
-case 'download-cert':
+case 'linkedin-share': {
+const fullName = [state.firstName, state.lastName].filter(Boolean).join(' ') || '';
+const text = encodeURIComponent('I just earned my Fraud Prevention in Vehicle Transportation certificate from Auto Hauler Exchange! Completed all 8 sessions of the Fight Fraud Series with Dana Randazzo, COO of AHX. Free to watch — autohaulerexchange.com/fight-fraud');
+window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent('https://www.autohaulerexchange.com/fight-fraud') + '&summary=' + text, '_blank');
+break;
+}
 downloadCert();
 break;
 case 'get-playbook':
