@@ -709,7 +709,7 @@ function openEmailModal(){ $('#emailModal').classList.add('open'); setTimeout(()
 function closeModal(){ $('#emailModal').classList.remove('open'); $('#emailErr').textContent = ''; }
 function showToast(msg){
 var t = document.getElementById('toast');
-if(!t){ t = document.createElement('div'); t.id='toast'; t.style.cssText='position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:#04072F;border:1px solid #E89700;color:#fff;font-family:'+document.body.style.fontFamily+';font-size:15px;padding:14px 24px;z-index:999;pointer-events:none;opacity:0;transition:opacity .3s;white-space:nowrap;'; document.body.appendChild(t); }
+if(!t){ t = document.createElement('div'); t.id='toast'; t.style.cssText='position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:#04072F;border:1px solid #E89700;color:#fff;font-size:15px;padding:14px 24px;z-index:999;pointer-events:none;opacity:0;transition:opacity .3s;white-space:nowrap;'; document.body.appendChild(t); }
 t.textContent = msg;
 t.style.opacity='1';
 clearTimeout(t._timer);
@@ -721,10 +721,14 @@ if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){ $('#emailErr').textContent = 'Enter a
 state.email = v;
 persist();
 hsAccountCreated(v);
+// Show success inside the modal, then close after 1.8s
+const sheet = $('#emailModal .sheet');
+sheet.innerHTML = '<div style="text-align:center;padding:20px 0"><div style="font-size:38px;margin-bottom:16px">✓</div><h3 style="font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:24px;margin-bottom:10px">You\'re in</h3><p style="color:var(--muted);font-size:15px">Your progress is being tracked.<br>Complete all 8 sessions to earn your certificate.</p></div>';
+setTimeout(function(){
 closeModal();
 renderStatus();
 renderHub();
-showToast('✓ Email saved — your progress is now being tracked.');
+}, 1800);
 }
 function hash(s){ let h=0; for(let i=0;i<s.length;i++){ h=((h<<5)-h)+s.charCodeAt(i); h|=0; } return h; }
 function escapeHtml(s){ return s.replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
