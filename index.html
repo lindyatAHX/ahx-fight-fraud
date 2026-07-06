@@ -707,6 +707,14 @@ logoImg.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmc
 
 function openEmailModal(){ $('#emailModal').classList.add('open'); setTimeout(() => $('#emailInput').focus(), 60); }
 function closeModal(){ $('#emailModal').classList.remove('open'); $('#emailErr').textContent = ''; }
+function showToast(msg){
+var t = document.getElementById('toast');
+if(!t){ t = document.createElement('div'); t.id='toast'; t.style.cssText='position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:#04072F;border:1px solid #E89700;color:#fff;font-family:'+document.body.style.fontFamily+';font-size:15px;padding:14px 24px;z-index:999;pointer-events:none;opacity:0;transition:opacity .3s;white-space:nowrap;'; document.body.appendChild(t); }
+t.textContent = msg;
+t.style.opacity='1';
+clearTimeout(t._timer);
+t._timer = setTimeout(function(){ t.style.opacity='0'; }, 3000);
+}
 function submitEmail(){
 const v = $('#emailInput').value.trim();
 if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){ $('#emailErr').textContent = 'Enter a valid email address.'; return; }
@@ -716,6 +724,7 @@ hsAccountCreated(v);
 closeModal();
 renderStatus();
 renderHub();
+showToast('✓ Email saved — your progress is now being tracked.');
 }
 function hash(s){ let h=0; for(let i=0;i<s.length;i++){ h=((h<<5)-h)+s.charCodeAt(i); h|=0; } return h; }
 function escapeHtml(s){ return s.replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
