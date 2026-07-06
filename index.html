@@ -624,64 +624,134 @@ function downloadCert() {
 const fullName = [state.firstName, state.lastName].filter(Boolean).join(' ') || 'Your Name';
 const today = new Date().toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'});
 const cid = 'AHX-FP-' + Math.abs(hash(state.email || fullName)).toString(36).toUpperCase().slice(0,6);
-const logo = `<svg style="height:44px;width:auto;display:block;margin:0 auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 886.93 203.26"><g id="a"/><g id="b"><g id="c"><g><g><path d="M90.96,173.34c-8.26,0-14.96,6.7-14.96,14.96s6.7,14.97,14.96,14.97,14.97-6.71,14.97-14.97-6.71-14.96-14.97-14.96Zm0,24.98c-5.52,0-10.01-4.5-10.01-10.02s4.49-10.01,10.01-10.01,10.02,4.49,10.02,10.01-4.5,10.02-10.02,10.02Z" style="fill:#fff;"/><path d="M90.97,9.87C40.72,9.87,0,50.59,0,100.83c0,41.39,27.63,76.32,65.46,87.34,.02-3.47,.73-6.79,2.01-9.8C32.16,168.19,6.33,135.64,6.33,97.05,6.33,50.31,44.23,12.42,90.97,12.42s84.62,37.88,84.62,84.62c0,38.58-25.82,71.14-61.12,81.32,1.28,3.02,1.99,6.33,2.01,9.8,37.82-11.03,65.45-45.95,65.45-87.34,0-50.24-40.73-90.97-90.97-90.97Z" style="fill:#fff;"/><circle cx="90.97" cy="12.05" r="12.05" style="fill:#fff;"/><path d="M157.65,178.79c-16.2-8.23-48.71-31.88-64.75-32.41-.64-.02-1.29-.03-1.93-.02-.64,0-1.29,0-1.93,.02-16.04,.53-48.55,24.18-64.75,32.41-4.87,2.47-14.72-10.66-12.08-15.73L85.36,40.69c2.53-4.24,8.68-4.24,11.21,0l73.15,122.36c2.64,5.07-7.21,18.2-12.08,15.73Z" style="fill:#fff;"/></g><g><g><polygon points="224.39 180.02 238.07 116.01 283.84 116.01 281.24 128.29 251.65 128.29 248.77 141.68 273.89 141.68 271.28 153.69 246.26 153.69 243.28 167.73 272.77 167.73 270.17 180.02 224.39 180.02" style="fill:#fff;"/><polygon points="276.31 180.02 304.96 147.27 290.26 116.01 308.31 116.01 316.5 135.54 317.34 135.54 334.36 116.01 352.41 116.01 324.31 148.1 339.01 180.02 321.06 180.02 312.5 160.2 311.57 160.2 294.36 180.02 276.31 180.02" style="fill:#fff;"/><path d="M373.62,180.76c-5.52,0-10.02-.45-13.49-1.35-3.47-.9-6.05-2.48-7.72-4.75-1.67-2.26-2.51-5.38-2.51-9.35,0-2.17,.2-4.7,.6-7.58,.4-2.88,1.04-6.12,1.91-9.72,1.24-5.52,2.47-10.2,3.67-14.05,1.21-3.85,2.57-7.01,4.09-9.49,1.52-2.48,3.4-4.37,5.63-5.67,2.23-1.3,4.99-2.22,8.28-2.74,3.29-.53,7.32-.79,12.09-.79,1.92,0,3.95,.08,6.09,.23,2.14,.16,4.17,.34,6.09,.56,1.92,.22,3.57,.48,4.93,.79l-2.42,11.54c-2.05-.25-3.86-.43-5.44-.56-1.58-.12-2.95-.2-4.09-.23-1.15-.03-2.16-.05-3.02-.05-2.92,0-5.34,.09-7.26,.28-1.92,.19-3.5,.64-4.74,1.35-1.24,.71-2.26,1.8-3.07,3.26-.81,1.46-1.57,3.46-2.28,6-.71,2.54-1.44,5.74-2.19,9.58-.68,3.16-1.24,5.89-1.68,8.19-.43,2.3-.65,4.16-.65,5.58,0,1.99,.43,3.46,1.3,4.42,.87,.96,2.25,1.58,4.14,1.86,1.89,.28,4.45,.42,7.68,.42,1.98,0,4.23-.08,6.74-.23,2.51-.15,4.7-.36,6.56-.6l-2.42,11.72c-1.43,.31-3.1,.57-5.02,.79-1.92,.22-3.91,.37-5.95,.47-2.05,.09-4,.14-5.86,.14Z" style="fill:#fff;"/><polygon points="401.53 180.02 415.21 116.01 431.49 116.01 426 141.13 447.58 141.13 452.98 116.01 469.26 116.01 455.59 180.02 439.3 180.02 444.7 154.62 423.21 154.62 417.81 180.02 401.53 180.02" style="fill:#fff;"/><path d="M520.06,116.01h-21.96l-34.61,64.01h16.29l3.4-6.26c2.14-3.95,6.28-6.4,10.77-6.4h5.36c6.21,0,11.44,4.65,12.17,10.82l.22,1.83h15.81l-7.44-64.01Zm-27.73,39.45l13.58-25.58h.75l2.79,25.58h-17.12Z" style="fill:#fff;"/><polygon points="535.5 180.02 549.18 116.01 566.02 116.01 580.16 150.99 580.72 150.99 588.25 116.01 603.61 116.01 589.93 180.02 574.58 180.02 559.69 141.59 559.04 141.59 550.85 180.02 535.5 180.02" style="fill:#fff;"/><path d="M631.52,180.76c-6.08,0-10.99-.53-14.75-1.58-3.75-1.05-6.5-2.82-8.23-5.3-1.74-2.48-2.6-5.95-2.6-10.42,0-2.11,.2-4.48,.6-7.12,.4-2.64,1.01-5.6,1.81-8.89,.99-5.15,2.11-9.57,3.35-13.26,1.24-3.69,2.71-6.78,4.42-9.26,1.71-2.48,3.75-4.42,6.14-5.82,2.39-1.4,5.27-2.39,8.65-2.98,3.38-.59,7.46-.88,12.23-.88,2.36,0,4.9,.09,7.63,.28,2.73,.19,5.46,.43,8.19,.74,2.73,.31,5.18,.68,7.35,1.12l-2.33,11.35c-1.99-.19-4.02-.37-6.09-.56-2.08-.19-4.05-.34-5.91-.47-1.86-.12-3.41-.19-4.65-.19-3.41,0-6.27,.05-8.56,.14-2.3,.09-4.2,.48-5.72,1.16-1.52,.68-2.78,1.75-3.77,3.21-.99,1.46-1.88,3.47-2.65,6.05-.78,2.57-1.57,5.88-2.37,9.91-.62,2.98-1.12,5.55-1.49,7.72-.37,2.17-.56,4.06-.56,5.68,0,2.05,.36,3.6,1.07,4.65,.71,1.06,1.89,1.78,3.54,2.19,1.64,.4,3.83,.6,6.56,.6,.74,0,1.58-.03,2.51-.09,.93-.06,1.88-.12,2.84-.19,.96-.06,1.78-.09,2.47-.09l2.98-14.05h-9.77l2.33-11.26h24.47l-7.63,35.63c-2.17,.43-4.57,.78-7.21,1.02-2.64,.25-5.24,.47-7.82,.65-2.57,.19-4.92,.28-7.02,.28Z" style="fill:#fff;"/><polygon points="666.96 180.02 680.64 116.01 726.41 116.01 723.81 128.29 694.22 128.29 691.34 141.68 716.46 141.68 713.85 153.69 688.82 153.69 685.85 167.73 715.34 167.73 712.74 180.02 666.96 180.02" style="fill:#fff;"/></g><g><path d="M330.68,88c-6.02,0-10.72-.43-14.1-1.3-3.38-.87-5.8-2.36-7.26-4.47-1.46-2.11-2.19-4.93-2.19-8.47,0-1.92,.2-4.17,.6-6.75,.4-2.57,.95-5.47,1.63-8.7l7.44-35.07h16.19l-8.19,38.42c-.43,2.17-.79,4-1.07,5.49-.28,1.49-.42,2.73-.42,3.72,0,1.3,.26,2.3,.79,2.98,.53,.68,1.43,1.15,2.7,1.4,1.27,.25,2.96,.37,5.07,.37,2.48,0,4.4-.17,5.77-.51,1.36-.34,2.47-.98,3.3-1.91,.84-.93,1.52-2.33,2.05-4.19,.53-1.86,1.13-4.31,1.81-7.35l8.19-38.42h16.28l-7.54,35.07c-.99,4.84-1.95,8.98-2.88,12.42-.93,3.44-2.02,6.28-3.26,8.51-1.24,2.23-2.92,3.99-5.02,5.26-2.11,1.27-4.74,2.17-7.91,2.7-3.16,.53-7.16,.79-12,.79Z" style="fill:#fff;"/><polygon points="381.94 87.26 392.92 36.09 374.87 36.09 377.66 23.25 429.95 23.25 427.15 36.09 409.2 36.09 398.31 87.26 381.94 87.26" style="fill:#fff;"/><path d="M486.61,28.37c-1.56-2.1-4.16-3.61-7.82-4.51-3.66-.9-8.74-1.35-15.26-1.35-5.27,0-9.64,.27-13.12,.79-3.48,.53-6.31,1.49-8.51,2.89-2.2,1.39-3.97,3.3-5.3,5.72-1.34,2.42-2.49,5.49-3.44,9.21-.96,3.72-1.97,8.25-3.03,13.58-.87,4.09-1.57,7.68-2.14,10.74-.56,3.07-.84,5.76-.84,8.05,0,3.72,.77,6.64,2.32,8.75,1.55,2.11,4.17,3.6,7.86,4.46,3.69,.87,8.83,1.3,15.4,1.3,5.21,0,9.52-.27,12.93-.84,3.41-.55,6.19-1.5,8.33-2.84,2.14-1.33,3.89-3.21,5.25-5.63,1.36-2.42,2.56-5.5,3.58-9.25,1.02-3.76,2.12-8.3,3.3-13.63,.87-4.03,1.55-7.56,2.05-10.6,.49-3.04,.74-5.73,.74-8.09,0-3.72-.77-6.64-2.32-8.75Zm-14.93,17.68c-.4,2.49-1.04,5.55-1.91,9.21-.81,4.03-1.54,7.32-2.19,9.86-.65,2.54-1.33,4.56-2.05,6.05-.71,1.49-1.55,2.56-2.51,3.21-.96,.65-2.19,1.04-3.67,1.16-1.49,.13-3.39,.19-5.68,.19s-4.28-.08-5.77-.24c-1.49-.15-2.56-.61-3.21-1.35-.65-.75-.98-1.96-.98-3.63,0-.99,.09-2.19,.27-3.58,.19-1.4,.48-3.07,.89-5.02,.4-1.95,.89-4.17,1.44-6.65,.8-4.03,1.54-7.32,2.19-9.86,.65-2.54,1.33-4.56,2.05-6.05,.71-1.49,1.57-2.56,2.56-3.21,.99-.65,2.22-1.04,3.68-1.17,1.45-.12,3.3-.18,5.54-.18,2.42,0,4.36,.08,5.82,.24,1.45,.15,2.51,.6,3.16,1.35,.65,.75,.98,1.99,.98,3.72,0,1.49-.2,3.48-.61,5.95Z" style="fill:#fff;"/><polygon points="516.84 87.26 530.52 23.25 546.8 23.25 541.31 48.37 562.89 48.37 568.29 23.25 584.57 23.25 570.89 87.26 554.61 87.26 560.01 61.86 538.52 61.86 533.12 87.26 516.84 87.26" style="fill:#fff;"/><path d="M635.37,23.25h-21.96l-34.61,64.01h16.28l3.41-6.26c2.15-3.94,6.27-6.39,10.76-6.39h5.36c6.21,0,11.44,4.65,12.17,10.82l.21,1.83h15.82l-7.44-64.01Zm-27.73,39.45l13.58-25.58h.75l2.79,25.58h-17.12Z" style="fill:#fff;"/><path d="M677.88,88c-6.02,0-10.72-.43-14.1-1.3-3.38-.87-5.8-2.36-7.26-4.47-1.46-2.11-2.19-4.93-2.19-8.47,0-1.92,.2-4.17,.6-6.75,.4-2.57,.95-5.47,1.63-8.7l7.44-35.07h16.19l-8.19,38.42c-.43,2.17-.79,4-1.07,5.49-.28,1.49-.42,2.73-.42,3.72,0,1.3,.26,2.3,.79,2.98,.53,.68,1.43,1.15,2.7,1.4,1.27,.25,2.96,.37,5.07,.37,2.48,0,4.4-.17,5.77-.51,1.36-.34,2.47-.98,3.3-1.91,.84-.93,1.52-2.33,2.05-4.19,.53-1.86,1.13-4.31,1.81-7.35l8.19-38.42h16.28l-7.54,35.07c-.99,4.84-1.95,8.98-2.88,12.42-.93,3.44-2.02,6.28-3.26,8.51-1.24,2.23-2.92,3.99-5.02,5.26-2.11,1.27-4.74,2.17-7.91,2.7-3.16,.53-7.16,.79-12,.79Z" style="fill:#fff;"/><polygon points="716.68 87.26 730.36 23.25 746.64 23.25 735.75 74.42 761.34 74.42 758.54 87.26 716.68 87.26" style="fill:#fff;"/><polygon points="767.38 87.26 781.06 23.25 826.83 23.25 824.23 35.53 794.64 35.53 791.76 48.93 816.88 48.93 814.27 60.93 789.25 60.93 786.27 74.98 815.76 74.98 813.16 87.26 767.38 87.26" style="fill:#fff;"/><path d="M885.4,29.02c-1.02-1.86-2.84-3.28-5.44-4.28-2.61-.99-6.24-1.49-10.88-1.49h-30.7l-13.68,64.01h16.29l4.93-22.98h12.28l3.07,22.98h16.47l-4.56-24.93c2.05-.75,3.77-1.63,5.16-2.65,1.39-1.03,2.53-2.26,3.39-3.72,.87-1.45,1.61-3.11,2.23-4.97,.62-1.86,1.21-3.91,1.77-6.14,.25-1.12,.45-2.2,.61-3.26,.15-1.05,.29-2.06,.42-3.02,.12-.96,.18-1.84,.18-2.65,0-2.73-.51-5.02-1.54-6.89Zm-15.35,12.28c-.1,.81-.29,1.71-.61,2.7-.31,1.74-.68,3.18-1.12,4.33-.43,1.15-1.01,2.05-1.72,2.7-.71,.65-1.72,1.1-3.02,1.35-1.3,.25-3.04,.37-5.21,.37h-10.05l3.72-17.59h10.32c2.11,0,3.72,.14,4.84,.42s1.89,.71,2.33,1.3c.43,.59,.65,1.35,.65,2.28,0,.62-.04,1.33-.14,2.14Z" style="fill:#fff;"/><path d="M295.6,87.26h-15.82l-.22-1.83c-.73-6.17-5.96-10.82-12.17-10.82h-5.36c-4.49,0-8.62,2.46-10.77,6.4h0l-3.41,6.25h-16.28l3.39-6.25,3.46-6.4h-14.05l6.44-11.91h46.72l-2.79-25.59h-.74l-10.18,19.18h-15.5l17.86-33.05h21.96l7.44,64.01Z" style="fill:#fff;"/></g></g></g></g></g></svg>`;
-const certHTML = `<!DOCTYPE html><html><head><meta charset="UTF-8">
-<title>Fraud Prevention Certificate — ${fullName}</title>
+
+// Build canvas certificate
+const W = 1122, H = 794; // A4 landscape at 96dpi
+const canvas = document.createElement('canvas');
+canvas.width = W; canvas.height = H;
+const ctx = canvas.getContext('2d');
+
+// Navy background
+ctx.fillStyle = '#04072F';
+ctx.fillRect(0, 0, W, H);
+
+// Watermark texture
+ctx.save();
+ctx.globalAlpha = 0.07;
+ctx.fillStyle = '#ffffff';
+ctx.font = 'bold 22px Arial';
+ctx.translate(W/2, H/2);
+ctx.rotate(-18 * Math.PI / 180);
+const wText = 'AUTO HAULER EXCHANGE · ';
+for(let row = -10; row < 10; row++) {
+  for(let col = -4; col < 8; col++) {
+    ctx.fillText(wText, col * 340 - 400, row * 48);
+  }
+}
+ctx.restore();
+
+// Orange outer border
+ctx.strokeStyle = '#E89700';
+ctx.lineWidth = 3;
+ctx.strokeRect(16, 16, W-32, H-32);
+
+// Inner gold border
+ctx.strokeStyle = 'rgba(232,151,0,0.3)';
+ctx.lineWidth = 1;
+ctx.strokeRect(28, 28, W-56, H-56);
+
+// Load and draw logo
+const logoImg = new Image();
+logoImg.onload = function() {
+  const lw = 260, lh = lw * (203.26/886.93);
+  ctx.drawImage(logoImg, (W-lw)/2, 54, lw, lh);
+
+  // Certificate of Completion
+  ctx.fillStyle = '#E89700';
+  ctx.font = 'bold 13px Arial';
+  ctx.letterSpacing = '0.18em';
+  ctx.textAlign = 'center';
+  ctx.fillText('CERTIFICATE OF COMPLETION', W/2, 54 + lh + 32);
+
+  // Title
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 52px Arial';
+  ctx.fillText('FRAUD PREVENTION IN', W/2, 54 + lh + 78);
+  ctx.fillText('VEHICLE TRANSPORTATION', W/2, 54 + lh + 134);
+
+  // This certifies that
+  ctx.fillStyle = '#9AA0C4';
+  ctx.font = '16px Arial';
+  ctx.fillText('This certifies that', W/2, 54 + lh + 178);
+
+  // Name
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 48px Arial';
+  const nameY = 54 + lh + 228;
+  ctx.fillText(fullName.toUpperCase(), W/2, nameY);
+
+  // Underline name
+  const nameW = ctx.measureText(fullName.toUpperCase()).width;
+  ctx.strokeStyle = '#E89700';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo((W - nameW)/2 - 30, nameY + 10);
+  ctx.lineTo((W + nameW)/2 + 30, nameY + 10);
+  ctx.stroke();
+
+  // Body text
+  ctx.fillStyle = '#9AA0C4';
+  ctx.font = '15px Arial';
+  ctx.fillText('has completed all eight sessions of the Fight Fraud Series with Dana Randazzo, COO of Auto Hauler Exchange,', W/2, nameY + 50);
+  ctx.fillText('and passed the accompanying knowledge check.', W/2, nameY + 72);
+
+  // Divider line
+  const divY = H - 120;
+  ctx.strokeStyle = '#1C2150';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(60, divY); ctx.lineTo(W-60, divY);
+  ctx.stroke();
+
+  // Signature left
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'italic bold 22px Georgia';
+  ctx.textAlign = 'left';
+  ctx.fillText('Dana Randazzo', 72, divY + 36);
+  ctx.fillStyle = '#646a96';
+  ctx.font = 'bold 11px Arial';
+  ctx.fillText('COO, AUTO HAULER EXCHANGE', 72, divY + 56);
+
+  // Cert ID right
+  ctx.textAlign = 'right';
+  ctx.fillStyle = '#646a96';
+  ctx.font = 'bold 15px Arial';
+  ctx.fillText(cid, W-72, divY + 36);
+  ctx.font = 'bold 11px Arial';
+  ctx.fillText('ISSUED ' + today.toUpperCase(), W-72, divY + 56);
+
+  // Convert to image and open print window
+  const imgData = canvas.toDataURL('image/png');
+  const win = window.open('', '_blank');
+  if(win) {
+    win.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>Fraud Prevention Certificate</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-html,body{background:#04072F;width:100%;min-height:100%;display:flex;align-items:center;justify-content:center;padding:20px;font-family:Arial,sans-serif;-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;color-adjust:exact !important;}
-.watermark{position:absolute;inset:0;overflow:hidden;opacity:.07;pointer-events:none;z-index:0;}
-.watermark-inner{transform:rotate(-18deg) translate(-8%,-10%);width:150%;white-space:nowrap;}
-.watermark-row{font-family:Arial,sans-serif;font-weight:800;font-size:28px;letter-spacing:.06em;color:#fff;line-height:2;text-transform:uppercase;white-space:nowrap;}
-.cert-content{position:relative;z-index:1;}
-.cert{position:relative;width:820px;background:#04072F !important;padding:52px 60px;border:2px solid #E89700 !important;}
-.cert::before{content:'';position:absolute;inset:10px;border:1px solid rgba(232,151,0,.3);pointer-events:none;}
-.logo-wrap{text-align:center;margin-bottom:30px;}
-.kick{text-align:center;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#E89700;margin-bottom:10px;}
-.title{text-align:center;font-size:36px;font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:.95;color:#fff;margin-bottom:28px;}
-.awarded{text-align:center;font-size:13px;color:#9AA0C4;margin-bottom:10px;}
-.name-wrap{text-align:center;margin-bottom:26px;}
-.name{font-size:34px;font-weight:800;text-transform:uppercase;color:#fff;display:inline-block;border-bottom:2px solid #E89700;padding:0 30px 8px;letter-spacing:.01em;}
-.body{text-align:center;font-size:13.5px;color:#9AA0C4;max-width:460px;margin:0 auto 34px;line-height:1.65;}
-.meta{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid #1C2150;padding-top:18px;}
-.sig-line{font-style:italic;font-size:20px;color:#fff;font-weight:700;border-bottom:1px solid #1C2150;padding-bottom:4px;margin-bottom:5px;}
-.sig-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#646a96;}
-.id{font-size:14px;font-weight:700;letter-spacing:.06em;color:#646a96;}
-.date{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#646a96;margin-top:3px;}
-.print-btn{display:block;margin:24px auto 0;padding:14px 32px;background:#E89700;color:#000;border:none;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;}
-@media print{
-  html,body{background:#04072F !important;padding:0;margin:0;}
-  .cert{background:#04072F !important;border:2px solid #E89700 !important;}
-  .cert::before{border:1px solid rgba(232,151,0,.3) !important;}
-  .watermark{display:block !important;}
-  .print-btn{display:none !important;}
-  @page{margin:0;size:11in 8.5in landscape;}
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
+img{max-width:100%;width:1122px;display:block;}
+.btn{margin-top:20px;padding:14px 32px;background:#E89700;color:#000;border:none;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;}
+@media print{body{background:#000;padding:0;}.btn{display:none;}@page{margin:0;size:landscape;}}
 </style></head><body>
-<div class="cert">
-<div class="watermark"><div class="watermark-inner"><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div></div></div>
-<div class="cert-content">
-<div class="logo-wrap">${logo}</div>
-<div class="kick">Certificate of Completion</div>
-<div class="title">Fraud Prevention in<br>Vehicle Transportation</div>
-<div class="awarded">This certifies that</div>
-<div class="name-wrap"><span class="name">${fullName}</span></div>
-<p class="body">has completed all eight sessions of the Fight Fraud Series with Dana Randazzo, COO of Auto Hauler Exchange, and passed the accompanying knowledge check.</p>
-<div class="meta">
-<div><div class="sig-line">Dana Randazzo</div><div class="sig-label">COO, Auto Hauler Exchange</div></div>
-<div style="text-align:right"><div class="id">${cid}</div><div class="date">Issued ${today}</div></div>
-</div>
-<button class="print-btn" onclick="window.print()">Save as PDF / Print</button>
-</div>
-</div>
-</body></html>`;
-const win = window.open('', '_blank');
-if(win){
-win.document.write(certHTML);
-win.document.close();
-} else {
-alert('Please allow popups for this site to print your certificate.');
-}
+<img src="${imgData}" alt="Certificate">
+<button class="btn" onclick="window.print()">Save as PDF / Print</button>
+</body></html>`);
+    win.document.close();
+  } else {
+    alert('Please allow popups for this site to print your certificate.');
+  }
+};
+logoImg.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4ODYuOTMgMjAzLjI2Ij48ZyBpZD0iYSIvPjxnIGlkPSJiIj48ZyBpZD0iYyI+PGc+PGc+PHBhdGggZD0iTTkwLjk2LDE3My4zNGMtOC4yNiwwLTE0Ljk2LDYuNy0xNC45NiwxNC45NnM2LjcsMTQuOTcsMTQuOTYsMTQuOTcsMTQuOTctNi43MSwxNC45Ny0xNC45Ny02LjcxLTE0Ljk2LTE0Ljk3LTE0Ljk2Wm0wLDI0Ljk4Yy01LjUyLDAtMTAuMDEtNC41LTEwLjAxLTEwLjAyczQuNDktMTAuMDEsMTAuMDEtMTAuMDEsMTAuMDIsNC40OSwxMC4wMiwxMC4wMS00LjUsMTAuMDItMTAuMDIsMTAuMDJaIiBzdHlsZT0iZmlsbDojZmZmOyIvPjxwYXRoIGQ9Ik05MC45Nyw5Ljg3QzQwLjcyLDkuODcsMCw1MC41OSwwLDEwMC44M2MwLDQxLjM5LDI3LjYzLDc2LjMyLDY1LjQ2LDg3LjM0LC4wMi0zLjQ3LC43My02Ljc5LDIuMDEtOS44QzMyLjE2LDE2OC4xOSw2LjMzLDEzNS42NCw2LjMzLDk3LjA1LDYuMzMsNTAuMzEsNDQuMjMsMTIuNDIsOTAuOTcsMTIuNDJzODQuNjIsMzcuODgsODQuNjIsODQuNjJjMCwzOC41OC0yNS44Miw3MS4xNC02MS4xMiw4MS4zMiwxLjI4LDMuMDIsMS45OSw2LjMzLDIuMDEsOS44LDM3LjgyLTExLjAzLDY1LjQ1LTQ1Ljk1LDY1LjQ1LTg3LjM0LDAtNTAuMjQtNDAuNzMtOTAuOTctOTAuOTctOTAuOTdaIiBzdHlsZT0iZmlsbDojZmZmOyIvPjxjaXJjbGUgY3g9IjkwLjk3IiBjeT0iMTIuMDUiIHI9IjEyLjA1IiBzdHlsZT0iZmlsbDojZmZmOyIvPjxwYXRoIGQ9Ik0xNTcuNjUsMTc4Ljc5Yy0xNi4yLTguMjMtNDguNzEtMzEuODgtNjQuNzUtMzIuNDEtLjY0LS4wMi0xLjI5LS4wMy0xLjkzLS4wMi0uNjQsMC0xLjI5LDAtMS45MywuMDItMTYuMDQsLjUzLTQ4LjU1LDI0LjE4LTY0Ljc1LDMyLjQxLTQuODcsMi40Ny0xNC43Mi0xMC42Ni0xMi4wOC0xNS43M0w4NS4zNiw0MC42OWMyLjUzLTQuMjQsOC42OC00LjI0LDExLjIxLDBsNzMuMTUsMTIyLjM2YzIuNjQsNS4wNy03LjIxLDE4LjItMTIuMDgsMTUuNzNaIiBzdHlsZT0iZmlsbDojZmZmOyIvPjwvZz48Zz48Zz48cG9seWdvbiBwb2ludHM9IjIyNC4zOSAxODAuMDIgMjM4LjA3IDExNi4wMSAyODMuODQgMTE2LjAxIDI4MS4yNCAxMjguMjkgMjUxLjY1IDEyOC4yOSAyNDguNzcgMTQxLjY4IDI3My44OSAxNDEuNjggMjcxLjI4IDE1My42OSAyNDYuMjYgMTUzLjY5IDI0My4yOCAxNjcuNzMgMjcyLjc3IDE2Ny43MyAyNzAuMTcgMTgwLjAyIDIyNC4zOSAxODAuMDIiIHN0eWxlPSJmaWxsOiNmZmY7Ii8+PHBvbHlnb24gcG9pbnRzPSIyNzYuMzEgMTgwLjAyIDMwNC45NiAxNDcuMjcgMjkwLjI2IDExNi4wMSAzMDguMzEgMTE2LjAxIDMxNi41IDEzNS41NCAzMTcuMzQgMTM1LjU0IDMzNC4zNiAxMTYuMDEgMzUyLjQxIDExNi4wMSAzMjQuMzEgMTQ4LjEgMzM5LjAxIDE4MC4wMiAzMjEuMDYgMTgwLjAyIDMxMi41IDE2MC4yIDMxMS41NyAxNjAuMiAyOTQuMzYgMTgwLjAyIDI3Ni4zMSAxODAuMDIiIHN0eWxlPSJmaWxsOiNmZmY7Ii8+PHBhdGggZD0iTTM3My42MiwxODAuNzZjLTUuNTIsMC0xMC4wMi0uNDUtMTMuNDktMS4zNS0zLjQ3LS45LTYuMDUtMi40OC03LjcyLTQuNzUtMS42Ny0yLjI2LTIuNTEtNS4zOC0yLjUxLTkuMzUsMC0yLjE3LC4yLTQuNywuNi03LjU4LC40LTIuODgsMS4wNC02LjEyLDEuOTEtOS43MiwxLjI0LTUuNTIsMi40Ny0xMC4yLDMuNjctMTQuMDUsMS4yMS0zLjg1LDIuNTctNy4wMSw0LjA5LTkuNDksMS41Mi0yLjQ4LDMuNC00LjM3LDUuNjMtNS42NywyLjIzLTEuMyw0Ljk5LTIuMjIsOC4yOC0yLjc0LDMuMjktLjUzLDcuMzItLjc5LDEyLjA5LS43OSwxLjkyLDAsMy45NSwuMDgsNi4wOSwuMjMsMi4xNCwuMTYsNC4xNywuMzQsNi4wOSwuNTYsMS45MiwuMjIsMy41NywuNDgsNC45MywuNzlsLTIuNDIsMTEuNTRjLTIuMDUtLjI1LTMuODYtLjQzLTUuNDQtLjU2LTEuNTgtLjEyLTIuOTUtLjItNC4wOS0uMjMtMS4xNS0uMDMtMi4xNi0uMDUtMy4wMi0uMDUtMi45MiwwLTUuMzQsLjA5LTcuMjYsLjI4LTEuOTIsLjE5LTMuNSwuNjQtNC43NCwxLjM1LTEuMjQsLjcxLTIuMjYsMS44LTMuMDcsMy4yNi0uODEsMS40Ni0xLjU3LDMuNDYtMi4yOCw2LS43MSwyLjU0LTEuNDQsNS43NC0yLjE5LDkuNTgtLjY4LDMuMTYtMS4yNCw1Ljg5LTEuNjgsOC4xOS0uNDMsMi4zLS42NSw0LjE2LS42NSw1LjU4LDAsMS45OSwuNDMsMy40NiwxLjMsNC40MiwuODcsLjk2LDIuMjUsMS41OCw0LjE0LDEuODYsMS44OSwuMjgsNC40NSwuNDIsNy42OCwuNDIsMS45OCwwLDQuMjMtLjA4LDYuNzQtLjIzLDIuNTEtLjE1LDQuNy0uMzYsNi41Ni0uNmwtMi40MiwxMS43MmMtMS40MywuMzEtMy4xLC41Ny01LjAyLC43OS0xLjkyLC4yMi0zLjkxLC4zNy01Ljk1LC40Ny0yLjA1LC4wOS00LC4xNC01Ljg2LC4xNFoiIHN0eWxlPSJmaWxsOiNmZmY7Ii8+PHBvbHlnb24gcG9pbnRzPSI0MDEuNTMgMTgwLjAyIDQxNS4yMSAxMTYuMDEgNDMxLjQ5IDExNi4wMSA0MjYgMTQxLjEzIDQ0Ny41OCAxNDEuMTMgNDUyLjk4IDExNi4wMSA0NjkuMjYgMTE2LjAxIDQ1NS41OSAxODAuMDIgNDM5LjMgMTgwLjAyIDQ0NC43IDE1NC42MiA0MjMuMjEgMTU0LjYyIDQxNy44MSAxODAuMDIgNDAxLjUzIDE4MC4wMiIgc3R5bGU9ImZpbGw6I2ZmZjsiLz48cGF0aCBkPSJNNTIwLjA2LDExNi4wMWgtMjEuOTZsLTM0LjYxLDY0LjAxaDE2LjI5bDMuNC02LjI2YzIuMTQtMy45NSw2LjI4LTYuNCwxMC43Ny02LjRoNS4zNmM2LjIxLDAsMTEuNDQsNC42NSwxMi4xNywxMC44MmwuMjIsMS44M2gxNS44MWwtNy40NC02NC4wMVptLTI3LjczLDM5LjQ1bDEzLjU4LTI1LjU4aC43NWwyLjc5LDI1LjU4aC0xNy4xMloiIHN0eWxlPSJmaWxsOiNmZmY7Ii8+PHBvbHlnb24gcG9pbnRzPSI1MzUuNSAxODAuMDIgNTQ5LjE4IDExNi4wMSA1NjYuMDIgMTE2LjAxIDU4MC4xNiAxNTAuOTkgNTgwLjcyIDE1MC45OSA1ODguMjUgMTE2LjAxIDYwMy42MSAxMTYuMDEgNTg5LjkzIDE4MC4wMiA1NzQuNTggMTgwLjAyIDU1OS42OSAxNDEuNTkgNTU5LjA0IDE0MS41OSA1NTAuODUgMTgwLjAyIDUzNS41IDE4MC4wMiIgc3R5bGU9ImZpbGw6I2ZmZjsiLz48cGF0aCBkPSJNNjMxLjUyLDE4MC43NmMtNi4wOCwwLTEwLjk5LS41My0xNC43NS0xLjU4LTMuNzUtMS4wNS02LjUtMi44Mi04LjIzLTUuMy0xLjc0LTIuNDgtMi42LTUuOTUtMi42LTEwLjQyLDAtMi4xMSwuMi00LjQ4LC42LTcuMTIsLjQtMi42NCwxLjAxLTUuNiwxLjgxLTguODksLjk5LTUuMTUsMi4xMS05LjU3LDMuMzUtMTMuMjYsMS4yNC0zLjY5LDIuNzEtNi43OCw0LjQyLTkuMjYsMS43MS0yLjQ4LDMuNzUtNC40Miw2LjE0LTUuODIsMi4zOS0xLjQsNS4yNy0yLjM5LDguNjUtMi45OCwzLjM4LS41OSw3LjQ2LS44OCwxMi4yMy0uODgsMi4zNiwwLDQuOSwuMDksNy42MywuMjgsMi43MywuMTksNS40NiwuNDMsOC4xOSwuNzQsMi43MywuMzEsNS4xOCwuNjgsNy4zNSwxLjEybC0yLjMzLDExLjM1Yy0xLjk5LS4xOS00LjAyLS4zNy02LjA5LS41Ni0yLjA4LS4xOS00LjA1LS4zNC01LjkxLS40Ny0xLjg2LS4xMi0zLjQxLS4xOS00LjY1LS4xOS0zLjQxLDAtNi4yNywuMDUtOC41NiwuMTQtMi4zLC4wOS00LjIsLjQ4LTUuNzIsMS4xNi0xLjUyLC42OC0yLjc4LDEuNzUtMy43NywzLjIxLS45OSwxLjQ2LTEuODgsMy40Ny0yLjY1LDYuMDUtLjc4LDIuNTctMS41Nyw1Ljg4LTIuMzcsOS45MS0uNjIsMi45OC0xLjEyLDUuNTUtMS40OSw3LjcyLS4zNywyLjE3LS41Niw0LjA2LS41Niw1LjY4LDAsMi4wNSwuMzYsMy42LDEuMDcsNC42NSwuNzEsMS4wNiwxLjg5LDEuNzgsMy41NCwyLjE5LDEuNjQsLjQsMy44MywuNiw2LjU2LC42LC43NCwwLDEuNTgtLjAzLDIuNTEtLjA5LC45My0uMDYsMS44OC0uMTIsMi44NC0uMTksLjk2LS4wNiwxLjc4LS4wOSwyLjQ3LS4wOWwyLjk4LTE0LjA1aC05Ljc3bDIuMzMtMTEuMjZoMjQuNDdsLTcuNjMsMzUuNjNjLTIuMTcsLjQzLTQuNTcsLjc4LTcuMjEsMS4wMi0yLjY0LC4yNS01LjI0LC40Ny03LjgyLC42NS0yLjU3LC4xOS00LjkyLC4yOC03LjAyLC4yOFoiIHN0eWxlPSJmaWxsOiNmZmY7Ii8+PHBvbHlnb24gcG9pbnRzPSI2NjYuOTYgMTgwLjAyIDY4MC42NCAxMTYuMDEgNzI2LjQxIDExNi4wMSA3MjMuODEgMTI4LjI5IDY5NC4yMiAxMjguMjkgNjkxLjM0IDE0MS42OCA3MTYuNDYgMTQxLjY4IDcxMy44NSAxNTMuNjkgNjg4LjgyIDE1My42OSA2ODUuODUgMTY3LjczIDcxNS4zNCAxNjcuNzMgNzEyLjc0IDE4MC4wMiA2NjYuOTYgMTgwLjAyIiBzdHlsZT0iZmlsbDojZmZmOyIvPjwvZz48Zz48cGF0aCBkPSJNMzMwLjY4LDg4Yy02LjAyLDAtMTAuNzItLjQzLTE0LjEtMS4zLTMuMzgtLjg3LTUuOC0yLjM2LTcuMjYtNC40Ny0xLjQ2LTIuMTEtMi4xOS00LjkzLTIuMTktOC40NywwLTEuOTIsLjItNC4xNywuNi02Ljc1LC40LTIuNTcsLjk1LTUuNDcsMS42My04LjdsNy40NC0zNS4wN2gxNi4xOWwtOC4xOSwzOC40MmMtLjQzLDIuMTctLjc5LDQtMS4wNyw1LjQ5LS4yOCwxLjQ5LS40MiwyLjczLS40MiwzLjcyLDAsMS4zLC4yNiwyLjMsLjc5LDIuOTgsLjUzLC42OCwxLjQzLDEuMTUsMi43LDEuNCwxLjI3LC4yNSwyLjk2LC4zNyw1LjA3LC4zNywyLjQ4LDAsNC40LS4xNyw1Ljc3LS41MSwxLjM2LS4zNCwyLjQ3LS45OCwzLjMtMS45MSwuODQtLjkzLDEuNTItMi4zMywyLjA1LTQuMTksLjUzLTEuODYsMS4xMy00LjMxLDEuODEtNy4zNWw4LjE5LTM4LjQyaDE2LjI4bC03LjU0LDM1LjA3Yy0uOTksNC44NC0xLjk1LDguOTgtMi44OCwxMi40Mi0uOTMsMy40NC0yLjAyLDYuMjgtMy4yNiw4LjUxLTEuMjQsMi4yMy0yLjkyLDMuOTktNS4wMiw1LjI2LTIuMTEsMS4yNy00Ljc0LDIuMTctNy45MSwyLjctMy4xNiwuNTMtNy4xNiwuNzktMTIsLjc5WiIgc3R5bGU9ImZpbGw6I2ZmZjsiLz48cG9seWdvbiBwb2ludHM9IjM4MS45NCA4Ny4yNiAzOTIuOTIgMzYuMDkgMzc0Ljg3IDM2LjA5IDM3Ny42NiAyMy4yNSA0MjkuOTUgMjMuMjUgNDI3LjE1IDM2LjA5IDQwOS4yIDM2LjA5IDM5OC4zMSA4Ny4yNiAzODEuOTQgODcuMjYiIHN0eWxlPSJmaWxsOiNmZmY7Ii8+PHBhdGggZD0iTTQ4Ni42MSwyOC4zN2MtMS41Ni0yLjEtNC4xNi0zLjYxLTcuODItNC41MS0zLjY2LS45LTguNzQtMS4zNS0xNS4yNi0xLjM1LTUuMjcsMC05LjY0LC4yNy0xMy4xMiwuNzktMy40OCwuNTMtNi4zMSwxLjQ5LTguNTEsMi44OS0yLjIsMS4zOS0zLjk3LDMuMy01LjMsNS43Mi0xLjM0LDIuNDItMi40OSw1LjQ5LTMuNDQsOS4yMS0uOTYsMy43Mi0xLjk3LDguMjUtMy4wMywxMy41OC0uODcsNC4wOS0xLjU3LDcuNjgtMi4xNCwxMC43NC0uNTYsMy4wNy0uODQsNS43Ni0uODQsOC4wNSwwLDMuNzIsLjc3LDYuNjQsMi4zMiw4Ljc1LDEuNTUsMi4xMSw0LjE3LDMuNiw3Ljg2LDQuNDYsMy42OSwuODcsOC44MywxLjMsMTUuNCwxLjMsNS4yMSwwLDkuNTItLjI3LDEyLjkzLS44NCwzLjQxLS41NSw2LjE5LTEuNSw4LjMzLTIuODQsMi4xNC0xLjMzLDMuODktMy4yMSw1LjI1LTUuNjMsMS4zNi0yLjQyLDIuNTYtNS41LDMuNTgtOS4yNSwxLjAyLTMuNzYsMi4xMi04LjMsMy4zLTEzLjYzLC44Ny00LjAzLDEuNTUtNy41NiwyLjA1LTEwLjYsLjQ5LTMuMDQsLjc0LTUuNzMsLjc0LTguMDksMC0zLjcyLS43Ny02LjY0LTIuMzItOC43NVptLTE0LjkzLDE3LjY4Yy0uNCwyLjQ5LTEuMDQsNS41NS0xLjkxLDkuMjEtLjgxLDQuMDMtMS41NCw3LjMyLTIuMTksOS44Ni0uNjUsMi41NC0xLjMzLDQuNTYtMi4wNSw2LjA1LS43MSwxLjQ5LTEuNTUsMi41Ni0yLjUxLDMuMjEtLjk2LC42NS0yLjE5LDEuMDQtMy42NywxLjE2LTEuNDksLjEzLTMuMzksLjE5LTUuNjgsLjE5cy00LjI4LS4wOC01Ljc3LS4yNGMtMS40OS0uMTUtMi41Ni0uNjEtMy4yMS0xLjM1LS42NS0uNzUtLjk4LTEuOTYtLjk4LTMuNjMsMC0uOTksLjA5LTIuMTksLjI3LTMuNTgsLjE5LTEuNCwuNDgtMy4wNywuODktNS4wMiwuNC0xLjk1LC44OS00LjE3LDEuNDQtNi42NSwuOC00LjAzLDEuNTQtNy4zMiwyLjE5LTkuODYsLjY1LTIuNTQsMS4zMy00LjU2LDIuMDUtNi4wNSwuNzEtMS40OSwxLjU3LTIuNTYsMi41Ni0zLjIxLC45OS0uNjUsMi4yMi0xLjA0LDMuNjgtMS4xNywxLjQ1LS4xMiwzLjMtLjE4LDUuNTQtLjE4LDIuNDIsMCw0LjM2LC4wOCw1LjgyLC4yNCwxLjQ1LC4xNSwyLjUxLC42LDMuMTYsMS4zNSwuNjUsLjc1LC45OCwxLjk5LC45OCwzLjcyLDAsMS40OS0uMiwzLjQ4LS42MSw1Ljk1WiIgc3R5bGU9ImZpbGw6I2ZmZjsiLz48cG9seWdvbiBwb2ludHM9IjUxNi44NCA4Ny4yNiA1MzAuNTIgMjMuMjUgNTQ2LjggMjMuMjUgNTQxLjMxIDQ4LjM3IDU2Mi44OSA0OC4zNyA1NjguMjkgMjMuMjUgNTg0LjU3IDIzLjI1IDU3MC44OSA4Ny4yNiA1NTQuNjEgODcuMjYgNTYwLjAxIDYxLjg2IDUzOC41MiA2MS44NiA1MzMuMTIgODcuMjYgNTE2Ljg0IDg3LjI2IiBzdHlsZT0iZmlsbDojZmZmOyIvPjxwYXRoIGQ9Ik02MzUuMzcsMjMuMjVoLTIxLjk2bC0zNC42MSw2NC4wMWgxNi4yOGwzLjQxLTYuMjZjMi4xNS0zLjk0LDYuMjctNi4zOSwxMC43Ni02LjM5aDUuMzZjNi4yMSwwLDExLjQ0LDQuNjUsMTIuMTcsMTAuODJsLjIxLDEuODNoMTUuODJsLTcuNDQtNjQuMDFabS0yNy43MywzOS40NWwxMy41OC0yNS41OGguNzVsMi43OSwyNS41OGgtMTcuMTJaIiBzdHlsZT0iZmlsbDojZmZmOyIvPjxwYXRoIGQ9Ik02NzcuODgsODhjLTYuMDIsMC0xMC43Mi0uNDMtMTQuMS0xLjMtMy4zOC0uODctNS44LTIuMzYtNy4yNi00LjQ3LTEuNDYtMi4xMS0yLjE5LTQuOTMtMi4xOS04LjQ3LDAtMS45MiwuMi00LjE3LC42LTYuNzUsLjQtMi41NywuOTUtNS40NywxLjYzLTguN2w3LjQ0LTM1LjA3aDE2LjE5bC04LjE5LDM4LjQyYy0uNDMsMi4xNy0uNzksNC0xLjA3LDUuNDktLjI4LDEuNDktLjQyLDIuNzMtLjQyLDMuNzIsMCwxLjMsLjI2LDIuMywuNzksMi45OCwuNTMsLjY4LDEuNDMsMS4xNSwyLjcsMS40LDEuMjcsLjI1LDIuOTYsLjM3LDUuMDcsLjM3LDIuNDgsMCw0LjQtLjE3LDUuNzctLjUxLDEuMzYtLjM0LDIuNDctLjk4LDMuMy0xLjkxLC44NC0uOTMsMS41Mi0yLjMzLDIuMDUtNC4xOSwuNTMtMS44NiwxLjEzLTQuMzEsMS44MS03LjM1bDguMTktMzguNDJoMTYuMjhsLTcuNTQsMzUuMDdjLS45OSw0Ljg0LTEuOTUsOC45OC0yLjg4LDEyLjQyLS45MywzLjQ0LTIuMDIsNi4yOC0zLjI2LDguNTEtMS4yNCwyLjIzLTIuOTIsMy45OS01LjAyLDUuMjYtMi4xMSwxLjI3LTQuNzQsMi4xNy03LjkxLDIuNy0zLjE2LC41My03LjE2LC43OS0xMiwuNzlaIiBzdHlsZT0iZmlsbDojZmZmOyIvPjxwb2x5Z29uIHBvaW50cz0iNzE2LjY4IDg3LjI2IDczMC4zNiAyMy4yNSA3NDYuNjQgMjMuMjUgNzM1Ljc1IDc0LjQyIDc2MS4zNCA3NC40MiA3NTguNTQgODcuMjYgNzE2LjY4IDg3LjI2IiBzdHlsZT0iZmlsbDojZmZmOyIvPjxwb2x5Z29uIHBvaW50cz0iNzY3LjM4IDg3LjI2IDc4MS4wNiAyMy4yNSA4MjYuODMgMjMuMjUgODI0LjIzIDM1LjUzIDc5NC42NCAzNS41MyA3OTEuNzYgNDguOTMgODE2Ljg4IDQ4LjkzIDgxNC4yNyA2MC45MyA3ODkuMjUgNjAuOTMgNzg2LjI3IDc0Ljk4IDgxNS43NiA3NC45OCA4MTMuMTYgODcuMjYgNzY3LjM4IDg3LjI2IiBzdHlsZT0iZmlsbDojZmZmOyIvPjxwYXRoIGQ9Ik04ODUuNCwyOS4wMmMtMS4wMi0xLjg2LTIuODQtMy4yOC01LjQ0LTQuMjgtMi42MS0uOTktNi4yNC0xLjQ5LTEwLjg4LTEuNDloLTMwLjdsLTEzLjY4LDY0LjAxaDE2LjI5bDQuOTMtMjIuOThoMTIuMjhsMy4wNywyMi45OGgxNi40N2wtNC41Ni0yNC45M2MyLjA1LS43NSwzLjc3LTEuNjMsNS4xNi0yLjY1LDEuMzktMS4wMywyLjUzLTIuMjYsMy4zOS0zLjcyLC44Ny0xLjQ1LDEuNjEtMy4xMSwyLjIzLTQuOTcsLjYyLTEuODYsMS4yMS0zLjkxLDEuNzctNi4xNCwuMjUtMS4xMiwuNDUtMi4yLC42MS0zLjI2LC4xNS0xLjA1LC4yOS0yLjA2LC40Mi0zLjAyLC4xMi0uOTYsLjE4LTEuODQsLjE4LTIuNjUsMC0yLjczLS41MS01LjAyLTEuNTQtNi44OVptLTE1LjM1LDEyLjI4Yy0uMSwuODEtLjI5LDEuNzEtLjYxLDIuNy0uMzEsMS43NC0uNjgsMy4xOC0xLjEyLDQuMzMtLjQzLDEuMTUtMS4wMSwyLjA1LTEuNzIsMi43LS43MSwuNjUtMS43MiwxLjEtMy4wMiwxLjM1LTEuMywuMjUtMy4wNCwuMzctNS4yMSwuMzdoLTEwLjA1bDMuNzItMTcuNTloMTAuMzJjMi4xMSwwLDMuNzIsLjE0LDQuODQsLjQyczEuODksLjcxLDIuMzMsMS4zYy40MywuNTksLjY1LDEuMzUsLjY1LDIuMjgsMCwuNjItLjA0LDEuMzMtLjE0LDIuMTRaIiBzdHlsZT0iZmlsbDojZmZmOyIvPjxwYXRoIGQ9Ik0yOTUuNiw4Ny4yNmgtMTUuODJsLS4yMi0xLjgzYy0uNzMtNi4xNy01Ljk2LTEwLjgyLTEyLjE3LTEwLjgyaC01LjM2Yy00LjQ5LDAtOC42MiwyLjQ2LTEwLjc3LDYuNGgwbC0zLjQxLDYuMjVoLTE2LjI4bDMuMzktNi4yNSwzLjQ2LTYuNGgtMTQuMDVsNi40NC0xMS45MWg0Ni43MmwtMi43OS0yNS41OWgtLjc0bC0xMC4xOCwxOS4xOGgtMTUuNWwxNy44Ni0zMy4wNWgyMS45Nmw3LjQ0LDY0LjAxWiIgc3R5bGU9ImZpbGw6I2ZmZjsiLz48L2c+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==';
 }
 
 function openEmailModal(){ $('#emailModal').classList.add('open'); setTimeout(() => $('#emailInput').focus(), 60); }
