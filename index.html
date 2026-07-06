@@ -633,9 +633,9 @@ logoImg.onload = function() {
 const lw = 220, lh = Math.round(lw * 203.26/886.93);
 let y = 52;
 y += lh + 22;  // logo
-y += 42;       // cert label
-y += 72;       // title line 1
-y += 72;       // title line 2
+y += 52;       // cert label
+y += 66;       // title line 1
+y += 66;       // title line 2
 y += 48;       // this certifies
 y += 50;       // name
 y += 46;       // name+underline gap
@@ -643,7 +643,7 @@ y += 24;       // body line 1
 y += 24;       // body line 2
 const bodyEnd = y;
 const divY = bodyEnd + 44;
-const H = divY + 100; // sig 34+54 + 12 pad
+const H = divY + 112; // sig 34+22+pad
 
 const canvas = document.createElement('canvas');
 canvas.width = W; canvas.height = H;
@@ -688,15 +688,15 @@ ctx.fillStyle = '#E89700';
 ctx.font = '700 12px Arial, sans-serif';
 ctx.textAlign = 'center';
 ctx.fillText('CERTIFICATE OF COMPLETION', W/2, dy);
-dy += 42;
+dy += 52;
 
-// Title
+// Title - reduced font to prevent edge clipping
 ctx.fillStyle = '#ffffff';
-ctx.font = '800 64px Arial, sans-serif';
+ctx.font = '800 56px Arial, sans-serif';
 ctx.fillText('FRAUD PREVENTION IN', W/2, dy);
-dy += 72;
+dy += 66;
 ctx.fillText('VEHICLE TRANSPORTATION', W/2, dy);
-dy += 72;
+dy += 66;
 
 // This certifies
 ctx.fillStyle = '#9AA0C4';
