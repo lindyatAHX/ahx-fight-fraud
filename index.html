@@ -313,7 +313,12 @@ document.getElementById('view-'+v).classList.add('active');
 requestAnimationFrame(function() {
 requestAnimationFrame(function() {
 scrollTop();
-if(window.self!==window.top){ setTimeout(sendHeight, 300); }
+if(window.self!==window.top){
+// Reset height first so parent collapses, then report new height
+window.parent.postMessage({type:'resize',height:100},'*');
+setTimeout(sendHeight, 100);
+setTimeout(sendHeight, 500);
+}
 });
 });
 }
