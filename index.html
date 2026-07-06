@@ -629,8 +629,12 @@ const certHTML = `<!DOCTYPE html><html><head><meta charset="UTF-8">
 <title>Fraud Prevention Certificate — ${fullName}</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-html,body{background:#04072F;width:100%;min-height:100%;display:flex;align-items:center;justify-content:center;padding:20px;font-family:Arial,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-.cert{position:relative;width:820px;background:#04072F;padding:52px 60px;border:2px solid #E89700;}
+html,body{background:#04072F;width:100%;min-height:100%;display:flex;align-items:center;justify-content:center;padding:20px;font-family:Arial,sans-serif;-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;color-adjust:exact !important;}
+.watermark{position:absolute;inset:0;overflow:hidden;opacity:.07;pointer-events:none;z-index:0;}
+.watermark-inner{transform:rotate(-18deg) translate(-8%,-10%);width:150%;white-space:nowrap;}
+.watermark-row{font-family:Arial,sans-serif;font-weight:800;font-size:28px;letter-spacing:.06em;color:#fff;line-height:2;text-transform:uppercase;white-space:nowrap;}
+.cert-content{position:relative;z-index:1;}
+.cert{position:relative;width:820px;background:#04072F !important;padding:52px 60px;border:2px solid #E89700 !important;}
 .cert::before{content:'';position:absolute;inset:10px;border:1px solid rgba(232,151,0,.3);pointer-events:none;}
 .logo-wrap{text-align:center;margin-bottom:30px;}
 .kick{text-align:center;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#E89700;margin-bottom:10px;}
@@ -646,12 +650,17 @@ html,body{background:#04072F;width:100%;min-height:100%;display:flex;align-items
 .date{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#646a96;margin-top:3px;}
 .print-btn{display:block;margin:24px auto 0;padding:14px 32px;background:#E89700;color:#000;border:none;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;}
 @media print{
-  html,body{background:#04072F;padding:0;}
-  .print-btn{display:none;}
-  @page{margin:0;size:landscape;}
+  html,body{background:#04072F !important;padding:0;margin:0;}
+  .cert{background:#04072F !important;border:2px solid #E89700 !important;}
+  .cert::before{border:1px solid rgba(232,151,0,.3) !important;}
+  .watermark{display:block !important;}
+  .print-btn{display:none !important;}
+  @page{margin:0;size:11in 8.5in landscape;}
 }
 </style></head><body>
 <div class="cert">
+<div class="watermark"><div class="watermark-inner"><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div><div class="watermark-row">AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · AUTO HAULER EXCHANGE · </div></div></div>
+<div class="cert-content">
 <div class="logo-wrap">${logo}</div>
 <div class="kick">Certificate of Completion</div>
 <div class="title">Fraud Prevention in<br>Vehicle Transportation</div>
@@ -663,6 +672,7 @@ html,body{background:#04072F;width:100%;min-height:100%;display:flex;align-items
 <div style="text-align:right"><div class="id">${cid}</div><div class="date">Issued ${today}</div></div>
 </div>
 <button class="print-btn" onclick="window.print()">Save as PDF / Print</button>
+</div>
 </div>
 </body></html>`;
 const win = window.open('', '_blank');
