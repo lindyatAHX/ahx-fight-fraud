@@ -4,20 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fight Fraud Series — Auto Hauler Exchange</title>
-<script src="https://player.vimeo.com/api/player.js">
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
 // ── AUTO-RESIZE (postMessage to parent iframe) ────────────────────────────────
-function sendHeight() {
-var h = document.documentElement.scrollHeight;
-window.parent.postMessage({ type: 'resize', height: h }, '*');
+function sendHeight(){
+var h = document.body.offsetHeight || document.documentElement.offsetHeight;
+if(h > 50) window.parent.postMessage({type:'resize',height:h},'*');
 }
-if (window.self !== window.top) {
-window.addEventListener('load', sendHeight);
-new MutationObserver(sendHeight).observe(document.body, { childList: true, subtree: true, attributes: true });
+if(window.self!==window.top){
+window.addEventListener('load', function(){ setTimeout(sendHeight, 300); });
+new MutationObserver(function(){ setTimeout(sendHeight, 100); }).observe(document.body,{childList:true,subtree:true});
 }
-
-
-function sendHeight(){window.parent.postMessage({type:'resize',height:document.documentElement.scrollHeight},'*');}
-if(window.self!==window.top){window.addEventListener('load',sendHeight);new MutationObserver(sendHeight).observe(document.body,{childList:true,subtree:true,attributes:true});}
 </script>
 <style>
 @font-face{font-family:'Good Pro Xcond';src:url('https://cdn.prod.website-files.com/67085f7df6d68f752c924add/677419cb94adbefdf9369b85_Good%20Pro%20XCond%20Black.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap;}
