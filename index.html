@@ -660,15 +660,14 @@ html,body{background:#04072F;width:100%;height:100%;display:flex;align-items:cen
 </div>
 </div>
 </body></html>`;
-const blob = new Blob([html], {type: 'text/html'});
-const url = URL.createObjectURL(blob);
-const a = document.createElement('a');
-a.href = url;
-a.download = 'AHX-Fraud-Prevention-Certificate.html';
-document.body.appendChild(a);
-a.click();
-document.body.removeChild(a);
-setTimeout(() => URL.revokeObjectURL(url), 1000);
+const win = window.open('', '_blank');
+if(win) {
+win.document.write(html);
+win.document.close();
+} else {
+// Fallback if popup blocked - use blob download via parent
+window.parent.postMessage({type:'certDownload', html:html}, '*');
+}
 }
 
 function openEmailModal(){ $('#emailModal').classList.add('open'); setTimeout(() => $('#emailInput').focus(), 60); }
