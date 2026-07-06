@@ -7,13 +7,12 @@
 <script src="https://player.vimeo.com/api/player.js"></script>
 <script>
 // ── AUTO-RESIZE (postMessage to parent iframe) ────────────────────────────────
+if(window.self!==window.top){
 function sendHeight(){
 var h = document.body.offsetHeight || document.documentElement.offsetHeight;
 if(h > 50) window.parent.postMessage({type:'resize',height:h},'*');
 }
-if(window.self!==window.top){
-window.addEventListener('load', function(){ setTimeout(sendHeight, 300); });
-new MutationObserver(function(){ setTimeout(sendHeight, 100); }).observe(document.body,{childList:true,subtree:true});
+window.addEventListener('load', function(){ sendHeight(); setTimeout(sendHeight, 1000); setTimeout(sendHeight, 2500); });
 }
 </script>
 <style>
@@ -307,6 +306,7 @@ document.getElementById('view-'+v).classList.add('active');
 requestAnimationFrame(function() {
 requestAnimationFrame(function() {
 window.scrollTo({ top: 0, behavior: 'instant' });
+if(window.self!==window.top){ setTimeout(sendHeight, 300); }
 });
 });
 }
