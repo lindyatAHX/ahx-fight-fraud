@@ -622,72 +622,85 @@ show('quiz');
 }
 
 function downloadCert() {
-const btn = document.querySelector('[data-action="download-cert"]');
-if(btn) { btn.textContent = 'Generating...'; btn.disabled = true; }
 const fullName = [state.firstName, state.lastName].filter(Boolean).join(' ') || 'Your Name';
 const today = new Date().toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'});
 const cid = 'AHX-FP-' + Math.abs(hash(state.email || fullName)).toString(36).toUpperCase().slice(0,6);
-const SCALE = 2;
-const W = 1400, lw = 220, lh = Math.round(lw * 203.26/886.93);
-let y = 52;
-y += lh + 30; y += 58; y += 58; y += 58; y += 48; y += 50; y += 46; y += 24; y += 24; y += 44;
-const H = y + 112;
-const canvas = document.createElement('canvas');
-canvas.width = W * SCALE; canvas.height = H * SCALE;
-const ctx = canvas.getContext('2d');
-ctx.scale(SCALE, SCALE);
-ctx.fillStyle = '#04072F'; ctx.fillRect(0, 0, W, H);
-ctx.save(); ctx.globalAlpha = 0.07; ctx.fillStyle = '#fff';
-ctx.font = '800 20px Arial,sans-serif';
-ctx.translate(W/2, H/2); ctx.rotate(-18*Math.PI/180);
-const wt = 'AUTO HAULER EXCHANGE · ';
-for(let r=-8;r<8;r++) for(let c=-5;c<10;c++) ctx.fillText(wt, c*320-500, r*46);
-ctx.restore();
-ctx.strokeStyle='#E89700'; ctx.lineWidth=3; ctx.strokeRect(20,20,W-40,H-40);
-ctx.strokeStyle='rgba(232,151,0,.3)'; ctx.lineWidth=1; ctx.strokeRect(34,34,W-68,H-68);
+const W = 1400;
 const logoImg = new Image();
 logoImg.onload = function() {
-  let dy = 52;
-  ctx.drawImage(logoImg, (W-lw)/2, dy, lw, lh); dy += lh + 30;
-  ctx.fillStyle='#E89700'; ctx.font='700 12px Arial,sans-serif'; ctx.textAlign='center';
-  ctx.fillText('CERTIFICATE OF COMPLETION', W/2, dy); dy += 58;
-  ctx.fillStyle='#fff'; ctx.font='800 48px Arial,sans-serif';
-  ctx.fillText('FRAUD PREVENTION IN', W/2, dy); dy += 58;
-  ctx.fillText('VEHICLE TRANSPORTATION', W/2, dy); dy += 58;
-  ctx.fillStyle='#9AA0C4'; ctx.font='400 16px Arial,sans-serif';
-  ctx.fillText('This certifies that', W/2, dy); dy += 48;
-  ctx.fillStyle='#fff'; ctx.font='800 52px Arial,sans-serif';
-  ctx.fillText(fullName.toUpperCase(), W/2, dy);
-  const nw = ctx.measureText(fullName.toUpperCase()).width;
-  ctx.strokeStyle='#E89700'; ctx.lineWidth=2.5;
-  ctx.beginPath(); ctx.moveTo((W-nw)/2-30,dy+12); ctx.lineTo((W+nw)/2+30,dy+12); ctx.stroke();
-  dy += 50;
-  ctx.fillStyle='#9AA0C4'; ctx.font='400 16px Arial,sans-serif';
-  ctx.fillText('has completed all eight sessions of the Fight Fraud Series with Dana Randazzo, COO of Auto Hauler Exchange,', W/2, dy); dy += 24;
-  ctx.fillText('and passed the accompanying knowledge check.', W/2, dy); dy += 44;
-  ctx.strokeStyle='#1C2150'; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(70,dy); ctx.lineTo(W-70,dy); ctx.stroke(); dy += 34;
-  ctx.textAlign='left'; ctx.fillStyle='#fff'; ctx.font='italic 700 22px Georgia,serif';
-  ctx.fillText('Dana Randazzo', 86, dy);
-  ctx.fillStyle='#646a96'; ctx.font='700 11px Arial,sans-serif';
-  ctx.fillText('COO, AUTO HAULER EXCHANGE', 86, dy+22);
-  ctx.textAlign='right'; ctx.font='700 14px Arial,sans-serif';
-  ctx.fillText(cid, W-86, dy);
-  ctx.font='700 11px Arial,sans-serif';
-  ctx.fillText('ISSUED '+today.toUpperCase(), W-86, dy+22);
-  const imgData = canvas.toDataURL('image/png', 1.0);
-  // Post to parent to handle download (bypasses iframe restrictions)
-  if(window.self !== window.top) {
-    window.parent.postMessage({type:'certDownload', imgData:imgData, filename:'AHX-Fraud-Prevention-Certificate.png'}, '*');
-  } else {
-    const a = document.createElement('a');
-    a.href = imgData; a.download = 'AHX-Fraud-Prevention-Certificate.png';
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-  }
-  if(btn) { btn.textContent = 'Download certificate'; btn.disabled = false; }
-};
-logoImg.onerror = function() {
-  if(btn) { btn.textContent = 'Download certificate'; btn.disabled = false; }
+const lw = 220, lh = Math.round(lw * 203.26/886.93);
+let y = 52;
+y += lh + 22;
+y += 52;
+y += 66;
+y += 66;
+y += 48;
+y += 50;
+y += 46;
+y += 24;
+y += 24;
+const bodyEnd = y;
+const divY = bodyEnd + 44;
+const H = divY + 112;
+const canvas = document.createElement('canvas');
+canvas.width = W; canvas.height = H;
+const ctx = canvas.getContext('2d');
+ctx.fillStyle = '#04072F';
+ctx.fillRect(0, 0, W, H);
+ctx.save();
+ctx.globalAlpha = 0.07;
+ctx.fillStyle = '#ffffff';
+ctx.font = '800 20px Arial, sans-serif';
+ctx.translate(W/2, H/2);
+ctx.rotate(-18 * Math.PI / 180);
+const wText = 'AUTO HAULER EXCHANGE · ';
+for(let row = -8; row < 8; row++) {
+for(let col = -5; col < 10; col++) {
+ctx.fillText(wText, col * 320 - 500, row * 46);
+}}
+ctx.restore();
+ctx.strokeStyle = '#E89700'; ctx.lineWidth = 3;
+ctx.strokeRect(20, 20, W-40, H-40);
+ctx.strokeStyle = 'rgba(232,151,0,0.3)'; ctx.lineWidth = 1;
+ctx.strokeRect(34, 34, W-68, H-68);
+let dy = 52;
+ctx.drawImage(logoImg, (W-lw)/2, dy, lw, lh); dy += lh + 22;
+ctx.fillStyle = '#E89700'; ctx.font = '700 12px Arial, sans-serif'; ctx.textAlign = 'center';
+ctx.fillText('CERTIFICATE OF COMPLETION', W/2, dy); dy += 52;
+ctx.fillStyle = '#ffffff'; ctx.font = '800 56px Arial, sans-serif';
+ctx.fillText('FRAUD PREVENTION IN', W/2, dy); dy += 66;
+ctx.fillText('VEHICLE TRANSPORTATION', W/2, dy); dy += 66;
+ctx.fillStyle = '#9AA0C4'; ctx.font = '400 16px Arial, sans-serif';
+ctx.fillText('This certifies that', W/2, dy); dy += 50;
+ctx.fillStyle = '#ffffff'; ctx.font = '800 52px Arial, sans-serif';
+ctx.fillText(fullName.toUpperCase(), W/2, dy);
+const nameW = ctx.measureText(fullName.toUpperCase()).width;
+ctx.strokeStyle = '#E89700'; ctx.lineWidth = 2.5;
+ctx.beginPath();
+ctx.moveTo((W-nameW)/2-30, dy+12);
+ctx.lineTo((W+nameW)/2+30, dy+12);
+ctx.stroke(); dy += 46;
+ctx.fillStyle = '#9AA0C4'; ctx.font = '400 16px Arial, sans-serif';
+ctx.fillText('has completed all eight sessions of the Fight Fraud Series with Dana Randazzo, COO of Auto Hauler Exchange,', W/2, dy); dy += 24;
+ctx.fillText('and passed the accompanying knowledge check.', W/2, dy); dy += 44;
+ctx.strokeStyle = '#1C2150'; ctx.lineWidth = 1;
+ctx.beginPath(); ctx.moveTo(70, dy); ctx.lineTo(W-70, dy); ctx.stroke(); dy += 34;
+ctx.textAlign = 'left'; ctx.fillStyle = '#ffffff'; ctx.font = 'italic 700 22px Georgia, serif';
+ctx.fillText('Dana Randazzo', 86, dy);
+ctx.fillStyle = '#646a96'; ctx.font = '700 11px Arial, sans-serif';
+ctx.fillText('COO, AUTO HAULER EXCHANGE', 86, dy + 22);
+ctx.textAlign = 'right'; ctx.font = '700 14px Arial, sans-serif';
+ctx.fillText(cid, W-86, dy);
+ctx.font = '700 11px Arial, sans-serif';
+ctx.fillText('ISSUED ' + today.toUpperCase(), W-86, dy + 22);
+const imgData = canvas.toDataURL('image/png', 1.0);
+const win = window.open('', '_blank');
+if(win) {
+win.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Fraud Prevention Certificate</title><style>*{margin:0;padding:0;box-sizing:border-box;}html,body{background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:20px;}img{width:100%;max-width:1200px;display:block;}.btn{margin-top:18px;padding:13px 32px;background:#E89700;color:#000;border:none;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-family:Arial,sans-serif;}@media print{html,body{background:white;padding:0;}.btn{display:none;}@page{margin:0;size:landscape;}}</style></head><body><img src="' + imgData + '" alt="Certificate"><button class="btn" onclick="window.print()">Save as PDF / Print</button></body></html>');
+win.document.close();
+} else {
+alert('Please allow popups for autohaulerexchange.com to view your certificate.');
+}
 };
 logoImg.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4ODYuOTMgMjAzLjI2Ij48ZyBpZD0iYSIvPjxnIGlkPSJiIj48ZyBpZD0iYyI+PGc+PGc+PHBhdGggZD0iTTkwLjk2LDE3My4zNGMtOC4yNiwwLTE0Ljk2LDYuNy0xNC45NiwxNC45NnM2LjcsMTQuOTcsMTQuOTYsMTQuOTcsMTQuOTctNi43MSwxNC45Ny0xNC45Ny02LjcxLTE0Ljk2LTE0Ljk3LTE0Ljk2Wm0wLDI0Ljk4Yy01LjUyLDAtMTAuMDEtNC41LTEwLjAxLTEwLjAyczQuNDktMTAuMDEsMTAuMDEtMTAuMDEsMTAuMDIsNC40OSwxMC4wMiwxMC4wMS00LjUsMTAuMDItMTAuMDIsMTAuMDJaIiBzdHlsZT0iZmlsbDojZmZmOyIvPjxwYXRoIGQ9Ik05MC45Nyw5Ljg3QzQwLjcyLDkuODcsMCw1MC41OSwwLDEwMC44M2MwLDQxLjM5LDI3LjYzLDc2LjMyLDY1LjQ2LDg3LjM0LC4wMi0zLjQ3LC43My02Ljc5LDIuMDEtOS44QzMyLjE2LDE2OC4xOSw2LjMzLDEzNS42NCw2LjMzLDk3LjA1LDYuMzMsNTAuMzEsNDQuMjMsMTIuNDIsOTAuOTcsMTIuNDJzODQuNjIsMzcuODgsODQuNjIsODQuNjJjMCwzOC41OC0yNS44Miw3MS4xNC02MS4xMiw4MS4zMiwxLjI4LDMuMDIsMS45OSw2LjMzLDIuMDEsOS44LDM3LjgyLTExLjAzLDY1LjQ1LTQ1Ljk1LDY1LjQ1LTg3LjM0LDAtNTAuMjQtNDAuNzMtOTAuOTctOTAuOTctOTAuOTdaIiBzdHlsZT0iZmlsbDojZmZmOyIvPjxjaXJjbGUgY3g9IjkwLjk3IiBjeT0iMTIuMDUiIHI9IjEyLjA1IiBzdHlsZT0iZmlsbDojZmZmOyIvPjxwYXRoIGQ9Ik0xNTcuNjUsMTc4Ljc5Yy0xNi4yLTguMjMtNDguNzEtMzEuODgtNjQuNzUtMzIuNDEtLjY0LS4wMi0xLjI5LS4wMy0xLjkzLS4wMi0uNjQsMC0xLjI5LDAtMS45MywuMDItMTYuMDQsLjUzLTQ4LjU1LDI0LjE4LTY0Ljc1LDMyLjQxLTQuODcsMi40Ny0xNC43Mi0xMC42Ni0xMi4wOC0xNS43M0w4NS4zNiw0MC42OWMyLjUzLTQuMjQsOC42OC00LjI0LDExLjIxLDBsNzMuMTUsMTIyLjM2YzIuNjQsNS4wNy03LjIxLDE4LjItMTIuMDgsMTUuNzNaIiBzdHlsZT0iZmlsbDojZmZmOyIvPjwvZz48Zz48Zz48cG9seWdvbiBwb2ludHM9IjIyNC4zOSAxODAuMDIgMjM4LjA3IDExNi4wMSAyODMuODQgMTE2LjAxIDI4MS4yNCAxMjguMjkgMjUxLjY1IDEyOC4yOSAyNDguNzcgMTQxLjY4IDI3My44OSAxNDEuNjggMjcxLjI4IDE1My42OSAyNDYuMjYgMTUzLjY5IDI0My4yOCAxNjcuNzMgMjcyLjc3IDE2Ny43MyAyNzAuMTcgMTgwLjAyIDIyNC4zOSAxODAuMDIiIHN0eWxlPSJmaWxsOiNmZmY7Ii8+PHBvbHlnb24gcG9pbnRzPSIyNzYuMzEgMTgwLjAyIDMwNC45NiAxNDcuMjcgMjkwLjI2IDExNi4wMSAzMDguMzEgMTE2LjAxIDMxNi41IDEzNS41NCAzMTcuMzQgMTM1LjU0IDMzNC4zNiAxMTYuMDEgMzUyLjQxIDExNi4wMSAzMjQuMzEgMTQ4LjEgMzM5LjAxIDE4MC4wMiAzMjEuMDYgMTgwLjAyIDMxMi41IDE2MC4yIDMxMS41NyAxNjAuMiAyOTQuMzYgMTgwLjAyIDI3Ni4zMSAxODAuMDIiIHN0eWxlPSJmaWxsOiNmZmY7Ii8+PHBhdGggZD0iTTM3My42MiwxODAuNzZjLTUuNTIsMC0xMC4wMi0uNDUtMTMuNDktMS4zNS0zLjQ3LS45LTYuMDUtMi40OC03LjcyLTQuNzUtMS42Ny0yLjI2LTIuNTEtNS4zOC0yLjUxLTkuMzUsMC0yLjE3LC4yLTQuNywuNi03LjU4LC40LTIuODgsMS4wNC02LjEyLDEuOTEtOS43MiwxLjI0LTUuNTIsMi40Ny0xMC4yLDMuNjctMTQuMDUsMS4yMS0zLjg1LDIuNTctNy4wMSw0LjA5LTkuNDksMS41Mi0yLjQ4LDMuNC00LjM3LDUuNjMtNS42NywyLjIzLTEuMyw0Ljk5LTIuMjIsOC4yOC0yLjc0LDMuMjktLjUzLDcuMzItLjc5LDEyLjA5LS43OSwxLjkyLDAsMy45NSwuMDgsNi4wOSwuMjMsMi4xNCwuMTYsNC4xNywuMzQsNi4wOSwuNTYsMS45MiwuMjIsMy41NywuNDgsNC45MywuNzlsLTIuNDIsMTEuNTRjLTIuMDUtLjI1LTMuODYtLjQzLTUuNDQtLjU2LTEuNTgtLjEyLTIuOTUtLjItNC4wOS0uMjMtMS4xNS0uMDMtMi4xNi0uMDUtMy4wMi0uMDUtMi45MiwwLTUuMzQsLjA5LTcuMjYsLjI4LTEuOTIsLjE5LTMuNSwuNjQtNC43NCwxLjM1LTEuMjQsLjcxLTIuMjYsMS44LTMuMDcsMy4yNi0uODEsMS40Ni0xLjU3LDMuNDYtMi4yOCw2LS43MSwyLjU0LTEuNDQsNS43NC0yLjE5LDkuNTgtLjY4LDMuMTYtMS4yNCw1Ljg5LTEuNjgsOC4xOS0uNDMsMi4zLS42NSw0LjE2LS42NSw1LjU4LDAsMS45OSwuNDMsMy40NiwxLjMsNC40MiwuODcsLjk2LDIuMjUsMS41OCw0LjE0LDEuODYsMS44OSwuMjgsNC40NSwuNDIsNy42OCwuNDIsMS45OCwwLDQuMjMtLjA4LDYuNzQtLjIzLDIuNTEtLjE1LDQuNy0uMzYsNi41Ni0uNmwtMi40MiwxMS43MmMtMS40MywuMzEtMy4xLC41Ny01LjAyLC43OS0xLjkyLC4yMi0zLjkxLC4zNy01Ljk1LC40Ny0yLjA1LC4wOS00LC4xNC01Ljg2LC4xNFoiIHN0eWxlPSJmaWxsOiNmZmY7Ii8+PHBvbHlnb24gcG9pbnRzPSI0MDEuNTMgMTgwLjAyIDQxNS4yMSAxMTYuMDEgNDMxLjQ5IDExNi4wMSA0MjYgMTQxLjEzIDQ0Ny41OCAxNDEuMTMgNDUyLjk4IDExNi4wMSA0NjkuMjYgMTE2LjAxIDQ1NS41OSAxODAuMDIgNDM5LjMgMTgwLjAyIDQ0NC43IDE1NC42MiA0MjMuMjEgMTU0LjYyIDQxNy44MSAxODAuMDIgNDAxLjUzIDE4MC4wMiIgc3R5bGU9ImZpbGw6I2ZmZjsiLz48cGF0aCBkPSJNNTIwLjA2LDExNi4wMWgtMjEuOTZsLTM0LjYxLDY0LjAxaDE2LjI5bDMuNC02LjI2YzIuMTQtMy45NSw2LjI4LTYuNCwxMC43Ny02LjRoNS4zNmM2LjIxLDAsMTEuNDQsNC42NSwxMi4xNywxMC44MmwuMjIsMS44M2gxNS44MWwtNy40NC02NC4wMVptLTI3LjczLDM5LjQ1bDEzLjU4LTI1LjU4aC43NWwyLjc5LDI1LjU4aC0xNy4xMloiIHN0eWxlPSJmaWxsOiNmZmY7Ii8+PHBvbHlnb24gcG9pbnRzPSI1MzUuNSAxODAuMDIgNTQ5LjE4IDExNi4wMSA1NjYuMDIgMTE2LjAxIDU4MC4xNiAxNTAuOTkgNTgwLjcyIDE1MC45OSA1ODguMjUgMTE2LjAxIDYwMy42MSAxMTYuMDEgNTg5LjkzIDE4MC4wMiA1NzQuNTggMTgwLjAyIDU1OS42OSAxNDEuNTkgNTU5LjA0IDE0MS41OSA1NTAuODUgMTgwLjAyIDUzNS41IDE4MC4wMiIgc3R5bGU9ImZpbGw6I2ZmZjsiLz48cGF0aCBkPSJNNjMxLjUyLDE4MC43NmMtNi4wOCwwLTEwLjk5LS41My0xNC43NS0xLjU4LTMuNzUtMS4wNS02LjUtMi44Mi04LjIzLTUuMy0xLjc0LTIuNDgtMi42LTUuOTUtMi42LTEwLjQyLDAtMi4xMSwuMi00LjQ4LC42LTcuMTIsLjQtMi42NCwxLjAxLTUuNiwxLjgxLTguODksLjk5LTUuMTUsMi4xMS05LjU3LDMuMzUtMTMuMjYsMS4yNC0zLjY5LDIuNzEtNi43OCw0LjQyLTkuMjYsMS43MS0yLjQ4LDMuNzUtNC40Miw2LjE0LTUuODIsMi4zOS0xLjQsNS4yNy0yLjM5LDguNjUtMi45OCwzLjM4LS41OSw3LjQ2LS44OCwxMi4yMy0uODgsMi4zNiwwLDQuOSwuMDksNy42MywuMjgsMi43MywuMTksNS40NiwuNDMsOC4xOSwuNzQsMi43MywuMzEsNS4xOCwuNjgsNy4zNSwxLjEybC0yLjMzLDExLjM1Yy0xLjk5LS4xOS00LjAyLS4zNy02LjA5LS41Ni0yLjA4LS4xOS00LjA1LS4zNC01LjkxLS40Ny0xLjg2LS4xMi0zLjQxLS4xOS00LjY1LS4xOS0zLjQxLDAtNi4yNywuMDUtOC41NiwuMTQtMi4zLC4wOS00LjIsLjQ4LTUuNzIsMS4xNi0xLjUyLC42OC0yLjc4LDEuNzUtMy43NywzLjIxLS45OSwxLjQ2LTEuODgsMy40Ny0yLjY1LDYuMDUtLjc4LDIuNTctMS41Nyw1Ljg4LTIuMzcsOS45MS0uNjIsMi45OC0xLjEyLDUuNTUtMS40OSw3LjcyLS4zNywyLjE3LS41Niw0LjA2LS41Niw1LjY4LDAsMi4wNSwuMzYsMy42LDEuMDcsNC42NSwuNzEsMS4wNiwxLjg5LDEuNzgsMy41NCwyLjE5LDEuNjQsLjQsMy44MywuNiw2LjU2LC42LC43NCwwLDEuNTgtLjAzLDIuNTEtLjA5LC45My0uMDYsMS44OC0uMTIsMi44NC0uMTksLjk2LS4wNiwxLjc4LS4wOSwyLjQ3LS4wOWwyLjk4LTE0LjA1aC05Ljc3bDIuMzMtMTEuMjZoMjQuNDdsLTcuNjMsMzUuNjNjLTIuMTcsLjQzLTQuNTcsLjc4LTcuMjEsMS4wMi0yLjY0LC4yNS01LjI0LC40Ny03LjgyLC42NS0yLjU3LC4xOS00LjkyLC4yOC03LjAyLC4yOFoiIHN0eWxlPSJmaWxsOiNmZmY7Ii8+PHBvbHlnb24gcG9pbnRzPSI2NjYuOTYgMTgwLjAyIDY4MC42NCAxMTYuMDEgNzI2LjQxIDExNi4wMSA3MjMuODEgMTI4LjI5IDY5NC4yMiAxMjguMjkgNjkxLjM0IDE0MS42OCA3MTYuNDYgMTQxLjY4IDcxMy44NSAxNTMuNjkgNjg4LjgyIDE1My42OSA2ODUuODUgMTY3LjczIDcxNS4zNCAxNjcuNzMgNzEyLjc0IDE4MC4wMiA2NjYuOTYgMTgwLjAyIiBzdHlsZT0iZmlsbDojZmZmOyIvPjwvZz48Zz48cGF0aCBkPSJNMzMwLjY4LDg4Yy02LjAyLDAtMTAuNzItLjQzLTE0LjEtMS4zLTMuMzgtLjg3LTUuOC0yLjM2LTcuMjYtNC40Ny0xLjQ2LTIuMTEtMi4xOS00LjkzLTIuMTktOC40NywwLTEuOTIsLjItNC4xNywuNi02Ljc1LC40LTIuNTcsLjk1LTUuNDcsMS42My04LjdsNy40NC0zNS4wN2gxNi4xOWwtOC4xOSwzOC40MmMtLjQzLDIuMTctLjc5LDQtMS4wNyw1LjQ5LS4yOCwxLjQ5LS40MiwyLjczLS40MiwzLjcyLDAsMS4zLC4yNiwyLjMsLjc5LDIuOTgsLjUzLC42OCwxLjQzLDEuMTUsMi43LDEuNCwxLjI3LC4yNSwyLjk2LC4zNyw1LjA3LC4zNywyLjQ4LDAsNC40LS4xNyw1Ljc3LS41MSwxLjM2LS4zNCwyLjQ3LS45OCwzLjMtMS45MSwuODQtLjkzLDEuNTItMi4zMywyLjA1LTQuMTksLjUzLTEuODYsMS4xMy00LjMxLDEuODEtNy4zNWw4LjE5LTM4LjQyaDE2LjI4bC03LjU0LDM1LjA3Yy0uOTksNC44NC0xLjk1LDguOTgtMi44OCwxMi40Mi0uOTMsMy40NC0yLjAyLDYuMjgtMy4yNiw4LjUxLTEuMjQsMi4yMy0yLjkyLDMuOTktNS4wMiw1LjI2LTIuMTEsMS4yNy00Ljc0LDIuMTctNy45MSwyLjctMy4xNiwuNTMtNy4xNiwuNzktMTIsLjc5WiIgc3R5bGU9ImZpbGw6I2ZmZjsiLz48cG9seWdvbiBwb2ludHM9IjM4MS45NCA4Ny4yNiAzOTIuOTIgMzYuMDkgMzc0Ljg3IDM2LjA5IDM3Ny42NiAyMy4yNSA0MjkuOTUgMjMuMjUgNDI3LjE1IDM2LjA5IDQwOS4yIDM2LjA5IDM5OC4zMSA4Ny4yNiAzODEuOTQgODcuMjYiIHN0eWxlPSJmaWxsOiNmZmY7Ii8+PHBhdGggZD0iTTQ4Ni42MSwyOC4zN2MtMS41Ni0yLjEtNC4xNi0zLjYxLTcuODItNC41MS0zLjY2LS45LTguNzQtMS4zNS0xNS4yNi0xLjM1LTUuMjcsMC05LjY0LC4yNy0xMy4xMiwuNzktMy40OCwuNTMtNi4zMSwxLjQ5LTguNTEsMi44OS0yLjIsMS4zOS0zLjk3LDMuMy01LjMsNS43Mi0xLjM0LDIuNDItMi40OSw1LjQ5LTMuNDQsOS4yMS0uOTYsMy43Mi0xLjk3LDguMjUtMy4wMywxMy41OC0uODcsNC4wOS0xLjU3LDcuNjgtMi4xNCwxMC43NC0uNTYsMy4wNy0uODQsNS43Ni0uODQsOC4wNSwwLDMuNzIsLjc3LDYuNjQsMi4zMiw4Ljc1LDEuNTUsMi4xMSw0LjE3LDMuNiw3Ljg2LDQuNDYsMy42OSwuODcsOC44MywxLjMsMTUuNCwxLjMsNS4yMSwwLDkuNTItLjI3LDEyLjkzLS44NCwzLjQxLS41NSw2LjE5LTEuNSw4LjMzLTIuODQsMi4xNC0xLjMzLDMuODktMy4yMSw1LjI1LTUuNjMsMS4zNi0yLjQyLDIuNTYtNS41LDMuNTgtOS4yNSwxLjAyLTMuNzYsMi4xMi04LjMsMy4zLTEzLjYzLC44Ny00LjAzLDEuNTUtNy41NiwyLjA1LTEwLjYsLjQ5LTMuMDQsLjc0LTUuNzMsLjc0LTguMDksMC0zLjcyLS43Ny02LjY0LTIuMzItOC43NVptLTE0LjkzLDE3LjY4Yy0uNCwyLjQ5LTEuMDQsNS41NS0xLjkxLDkuMjEtLjgxLDQuMDMtMS41NCw3LjMyLTIuMTksOS44Ni0uNjUsMi41NC0xLjMzLDQuNTYtMi4wNSw2LjA1LS43MSwxLjQ5LTEuNTUsMi41Ni0yLjUxLDMuMjEtLjk2LC42NS0yLjE5LDEuMDQtMy42NywxLjE2LTEuNDksLjEzLTMuMzksLjE5LTUuNjgsLjE5cy00LjI4LS4wOC01Ljc3LS4yNGMtMS40OS0uMTUtMi41Ni0uNjEtMy4yMS0xLjM1LS42NS0uNzUtLjk4LTEuOTYtLjk4LTMuNjMsMC0uOTksLjA5LTIuMTksLjI3LTMuNTgsLjE5LTEuNCwuNDgtMy4wNywuODktNS4wMiwuNC0xLjk1LC44OS00LjE3LDEuNDQtNi42NSwuOC00LjAzLDEuNTQtNy4zMiwyLjE5LTkuODYsLjY1LTIuNTQsMS4zMy00LjU2LDIuMDUtNi4wNSwuNzEtMS40OSwxLjU3LTIuNTYsMi41Ni0zLjIxLC45OS0uNjUsMi4yMi0xLjA0LDMuNjgtMS4xNywxLjQ1LS4xMiwzLjMtLjE4LDUuNTQtLjE4LDIuNDIsMCw0LjM2LC4wOCw1LjgyLC4yNCwxLjQ1LC4xNSwyLjUxLC42LDMuMTYsMS4zNSwuNjUsLjc1LC45OCwxLjk5LC45OCwzLjcyLDAsMS40OS0uMiwzLjQ4LS42MSw1Ljk1WiIgc3R5bGU9ImZpbGw6I2ZmZjsiLz48cG9seWdvbiBwb2ludHM9IjUxNi44NCA4Ny4yNiA1MzAuNTIgMjMuMjUgNTQ2LjggMjMuMjUgNTQxLjMxIDQ4LjM3IDU2Mi44OSA0OC4zNyA1NjguMjkgMjMuMjUgNTg0LjU3IDIzLjI1IDU3MC44OSA4Ny4yNiA1NTQuNjEgODcuMjYgNTYwLjAxIDYxLjg2IDUzOC41MiA2MS44NiA1MzMuMTIgODcuMjYgNTE2Ljg0IDg3LjI2IiBzdHlsZT0iZmlsbDojZmZmOyIvPjxwYXRoIGQ9Ik02MzUuMzcsMjMuMjVoLTIxLjk2bC0zNC42MSw2NC4wMWgxNi4yOGwzLjQxLTYuMjZjMi4xNS0zLjk0LDYuMjctNi4zOSwxMC43Ni02LjM5aDUuMzZjNi4yMSwwLDExLjQ0LDQuNjUsMTIuMTcsMTAuODJsLjIxLDEuODNoMTUuODJsLTcuNDQtNjQuMDFabS0yNy43MywzOS40NWwxMy41OC0yNS41OGguNzVsMi43OSwyNS41OGgtMTcuMTJaIiBzdHlsZT0iZmlsbDojZmZmOyIvPjxwYXRoIGQ9Ik02NzcuODgsODhjLTYuMDIsMC0xMC43Mi0uNDMtMTQuMS0xLjMtMy4zOC0uODctNS44LTIuMzYtNy4yNi00LjQ3LTEuNDYtMi4xMS0yLjE5LTQuOTMtMi4xOS04LjQ3LDAtMS45MiwuMi00LjE3LC42LTYuNzUsLjQtMi41NywuOTUtNS40NywxLjYzLTguN2w3LjQ0LTM1LjA3aDE2LjE5bC04LjE5LDM4LjQyYy0uNDMsMi4xNy0uNzksNC0xLjA3LDUuNDktLjI4LDEuNDktLjQyLDIuNzMtLjQyLDMuNzIsMCwxLjMsLjI2LDIuMywuNzksMi45OCwuNTMsLjY4LDEuNDMsMS4xNSwyLjcsMS40LDEuMjcsLjI1LDIuOTYsLjM3LDUuMDcsLjM3LDIuNDgsMCw0LjQtLjE3LDUuNzctLjUxLDEuMzYtLjM0LDIuNDctLjk4LDMuMy0xLjkxLC44NC0uOTMsMS41Mi0yLjMzLDIuMDUtNC4xOSwuNTMtMS44NiwxLjEzLTQuMzEsMS44MS03LjM1bDguMTktMzguNDJoMTYuMjhsLTcuNTQsMzUuMDdjLS45OSw0Ljg0LTEuOTUsOC45OC0yLjg4LDEyLjQyLS45MywzLjQ0LTIuMDIsNi4yOC0zLjI2LDguNTEtMS4yNCwyLjIzLTIuOTIsMy45OS01LjAyLDUuMjYtMi4xMSwxLjI3LTQuNzQsMi4xNy03LjkxLDIuNy0zLjE2LC41My03LjE2LC43OS0xMiwuNzlaIiBzdHlsZT0iZmlsbDojZmZmOyIvPjxwb2x5Z29uIHBvaW50cz0iNzE2LjY4IDg3LjI2IDczMC4zNiAyMy4yNSA3NDYuNjQgMjMuMjUgNzM1Ljc1IDc0LjQyIDc2MS4zNCA3NC40MiA3NTguNTQgODcuMjYgNzE2LjY4IDg3LjI2IiBzdHlsZT0iZmlsbDojZmZmOyIvPjxwb2x5Z29uIHBvaW50cz0iNzY3LjM4IDg3LjI2IDc4MS4wNiAyMy4yNSA4MjYuODMgMjMuMjUgODI0LjIzIDM1LjUzIDc5NC42NCAzNS41MyA3OTEuNzYgNDguOTMgODE2Ljg4IDQ4LjkzIDgxNC4yNyA2MC45MyA3ODkuMjUgNjAuOTMgNzg2LjI3IDc0Ljk4IDgxNS43NiA3NC45OCA4MTMuMTYgODcuMjYgNzY3LjM4IDg3LjI2IiBzdHlsZT0iZmlsbDojZmZmOyIvPjxwYXRoIGQ9Ik04ODUuNCwyOS4wMmMtMS4wMi0xLjg2LTIuODQtMy4yOC01LjQ0LTQuMjgtMi42MS0uOTktNi4yNC0xLjQ5LTEwLjg4LTEuNDloLTMwLjdsLTEzLjY4LDY0LjAxaDE2LjI5bDQuOTMtMjIuOThoMTIuMjhsMy4wNywyMi45OGgxNi40N2wtNC41Ni0yNC45M2MyLjA1LS43NSwzLjc3LTEuNjMsNS4xNi0yLjY1LDEuMzktMS4wMywyLjUzLTIuMjYsMy4zOS0zLjcyLC44Ny0xLjQ1LDEuNjEtMy4xMSwyLjIzLTQuOTcsLjYyLTEuODYsMS4yMS0zLjkxLDEuNzctNi4xNCwuMjUtMS4xMiwuNDUtMi4yLC42MS0zLjI2LC4xNS0xLjA1LC4yOS0yLjA2LC40Mi0zLjAyLC4xMi0uOTYsLjE4LTEuODQsLjE4LTIuNjUsMC0yLjczLS41MS01LjAyLTEuNTQtNi44OVptLTE1LjM1LDEyLjI4Yy0uMSwuODEtLjI5LDEuNzEtLjYxLDIuNy0uMzEsMS43NC0uNjgsMy4xOC0xLjEyLDQuMzMtLjQzLDEuMTUtMS4wMSwyLjA1LTEuNzIsMi43LS43MSwuNjUtMS43MiwxLjEtMy4wMiwxLjM1LTEuMywuMjUtMy4wNCwuMzctNS4yMSwuMzdoLTEwLjA1bDMuNzItMTcuNTloMTAuMzJjMi4xMSwwLDMuNzIsLjE0LDQuODQsLjQyczEuODksLjcxLDIuMzMsMS4zYy40MywuNTksLjY1LDEuMzUsLjY1LDIuMjgsMCwuNjItLjA0LDEuMzMtLjE0LDIuMTRaIiBzdHlsZT0iZmlsbDojZmZmOyIvPjxwYXRoIGQ9Ik0yOTUuNiw4Ny4yNmgtMTUuODJsLS4yMi0xLjgzYy0uNzMtNi4xNy01Ljk2LTEwLjgyLTEyLjE3LTEwLjgyaC01LjM2Yy00LjQ5LDAtOC42MiwyLjQ2LTEwLjc3LDYuNGgwbC0zLjQxLDYuMjVoLTE2LjI4bDMuMzktNi4yNSwzLjQ2LTYuNGgtMTQuMDVsNi40NC0xMS45MWg0Ni43MmwtMi43OS0yNS41OWgtLjc0bC0xMC4xOCwxOS4xOGgtMTUuNWwxNy44Ni0zMy4wNWgyMS45Nmw3LjQ0LDY0LjAxWiIgc3R5bGU9ImZpbGw6I2ZmZjsiLz48L2c+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==';
 }
