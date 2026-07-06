@@ -622,7 +622,6 @@ show('quiz');
 }
 
 function downloadCert() {
-alert('downloadCert called');
 const fullName = [state.firstName, state.lastName].filter(Boolean).join(' ') || 'Your Name';
 const today = new Date().toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'});
 const cid = 'AHX-FP-' + Math.abs(hash(state.email || fullName)).toString(36).toUpperCase().slice(0,6);
@@ -786,6 +785,9 @@ certUrl: 'https://www.autohaulerexchange.com/fight-fraud'
 window.open('https://www.linkedin.com/profile/add?' + params.toString(), '_blank');
 break;
 }
+case 'download-cert':
+downloadCert();
+break;
 case 'linkedin-share': {
 const fullName = [state.firstName, state.lastName].filter(Boolean).join(' ') || '';
 const text = encodeURIComponent('I just earned my Fraud Prevention in Vehicle Transportation certificate from Auto Hauler Exchange! Completed all 8 sessions of the Fight Fraud Series with Dana Randazzo, COO of AHX. Free to watch — autohaulerexchange.com/fight-fraud');
