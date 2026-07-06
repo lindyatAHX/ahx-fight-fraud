@@ -623,31 +623,40 @@ show('quiz');
 }
 
 function downloadCert() {
-const fullName = [state.firstName, state.lastName].filter(Boolean).join(' ') || 'Your Name';
-// Find the certificate element in the DOM and screenshot it
-const certEl = document.querySelector('.certificate');
-if(!certEl) { alert('Certificate not found. Please try again.'); return; }
-// Temporarily expand for full capture
 const btn = document.querySelector('[data-action="download-cert"]');
 if(btn) { btn.textContent = 'Generating...'; btn.disabled = true; }
+const certEl = document.querySelector('.certificate');
+if(!certEl) {
+  if(btn) { btn.textContent = 'Download certificate'; btn.disabled = false; }
+  alert('Certificate not found. Please try again.');
+  return;
+}
+if(typeof html2canvas === 'undefined') {
+  if(btn) { btn.textContent = 'Download certificate'; btn.disabled = false; }
+  alert('Please right-click the certificate and choose "Save image as" to download it.');
+  return;
+}
 html2canvas(certEl, {
   scale: 2,
   useCORS: true,
   allowTaint: true,
   backgroundColor: '#04072F',
-  logging: false
+  logging: false,
+  foreignObjectRendering: false
 }).then(function(canvas) {
-  const a = document.createElement('a');
-  a.href = canvas.toDataURL('image/png', 1.0);
-  a.download = 'AHX-Fraud-Prevention-Certificate.png';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
+  const fullName = [state.firstName, state.lastName].filter(Boolean).join(' ') || 'Certificate';
+  const link = document.createElement('a');
+  link.href = canvas.toDataURL('image/png', 1.0);
+  link.download = 'AHX-Fraud-Prevention-Certificate.png';
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  link.click();
+  setTimeout(function() { document.body.removeChild(link); }, 100);
   if(btn) { btn.textContent = 'Download certificate'; btn.disabled = false; }
 }).catch(function(err) {
   console.error('html2canvas error:', err);
   if(btn) { btn.textContent = 'Download certificate'; btn.disabled = false; }
-  alert('Could not generate certificate image. Please try screenshotting the certificate directly.');
+  alert('Please right-click the certificate image and choose "Save image as" to download it.');
 });
 }
 
