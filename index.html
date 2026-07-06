@@ -661,53 +661,62 @@ ctx.strokeRect(34, 34, W-68, H-68);
 
 const logoImg = new Image();
 logoImg.onload = function() {
+  // — use fixed Y positions to pack everything tightly —
+  const PAD = 60;
+  let y = PAD;
+
   // Logo
-  const lw = 280, lh = lw * (203.26/886.93);
-  const logoX = (W - lw) / 2;
-  const logoY = 70;
-  ctx.drawImage(logoImg, logoX, logoY, lw, lh);
+  const lw = 240, lh = lw * (203.26/886.93);
+  ctx.drawImage(logoImg, (W-lw)/2, y, lw, lh);
+  y += lh + 28;
 
-  // CERTIFICATE OF COMPLETION
+  // Certificate of Completion
   ctx.fillStyle = '#E89700';
-  ctx.font = '700 13px Arial, sans-serif';
+  ctx.font = '700 12px Arial, sans-serif';
   ctx.textAlign = 'center';
-  ctx.letterSpacing = '3px';
-  ctx.fillText('CERTIFICATE OF COMPLETION', W/2, logoY + lh + 44);
+  ctx.fillText('CERTIFICATE OF COMPLETION', W/2, y);
+  y += 44;
 
-  // Title
+  // Title line 1
   ctx.fillStyle = '#ffffff';
-  ctx.font = '800 68px Arial, sans-serif';
-  ctx.fillText('FRAUD PREVENTION IN', W/2, logoY + lh + 116);
-  ctx.fillText('VEHICLE TRANSPORTATION', W/2, logoY + lh + 192);
+  ctx.font = '800 62px Arial, sans-serif';
+  ctx.fillText('FRAUD PREVENTION IN', W/2, y);
+  y += 70;
+
+  // Title line 2
+  ctx.fillText('VEHICLE TRANSPORTATION', W/2, y);
+  y += 52;
 
   // This certifies that
   ctx.fillStyle = '#9AA0C4';
-  ctx.font = '400 18px Arial, sans-serif';
-  ctx.fillText('This certifies that', W/2, logoY + lh + 248);
+  ctx.font = '400 17px Arial, sans-serif';
+  ctx.fillText('This certifies that', W/2, y);
+  y += 54;
 
   // Name
   ctx.fillStyle = '#ffffff';
-  ctx.font = '800 58px Arial, sans-serif';
-  const nameY = logoY + lh + 318;
-  ctx.fillText(fullName.toUpperCase(), W/2, nameY);
+  ctx.font = '800 54px Arial, sans-serif';
+  ctx.fillText(fullName.toUpperCase(), W/2, y);
 
   // Name underline
   const nameW = ctx.measureText(fullName.toUpperCase()).width;
   ctx.strokeStyle = '#E89700';
   ctx.lineWidth = 2.5;
   ctx.beginPath();
-  ctx.moveTo((W - nameW)/2 - 40, nameY + 14);
-  ctx.lineTo((W + nameW)/2 + 40, nameY + 14);
+  ctx.moveTo((W - nameW)/2 - 30, y + 12);
+  ctx.lineTo((W + nameW)/2 + 30, y + 12);
   ctx.stroke();
+  y += 52;
 
-  // Body text — two lines, proper font
+  // Body text
   ctx.fillStyle = '#9AA0C4';
-  ctx.font = '400 17px Arial, sans-serif';
-  ctx.fillText('has completed all eight sessions of the Fight Fraud Series with Dana Randazzo, COO of Auto Hauler Exchange,', W/2, nameY + 66);
-  ctx.fillText('and passed the accompanying knowledge check.', W/2, nameY + 92);
+  ctx.font = '400 16px Arial, sans-serif';
+  ctx.fillText('has completed all eight sessions of the Fight Fraud Series with Dana Randazzo, COO of Auto Hauler Exchange,', W/2, y);
+  y += 26;
+  ctx.fillText('and passed the accompanying knowledge check.', W/2, y);
 
-  // Divider
-  const divY = H - 148;
+  // Divider — fixed distance from bottom
+  const divY = H - 110;
   ctx.strokeStyle = '#1C2150';
   ctx.lineWidth = 1;
   ctx.beginPath();
@@ -715,24 +724,24 @@ logoImg.onload = function() {
   ctx.lineTo(W-70, divY);
   ctx.stroke();
 
-  // Signature
+  // Signature left
   ctx.textAlign = 'left';
   ctx.fillStyle = '#ffffff';
-  ctx.font = 'italic 700 26px Georgia, serif';
-  ctx.fillText('Dana Randazzo', 86, divY + 44);
+  ctx.font = 'italic 700 24px Georgia, serif';
+  ctx.fillText('Dana Randazzo', 86, divY + 36);
   ctx.fillStyle = '#646a96';
-  ctx.font = '700 12px Arial, sans-serif';
-  ctx.fillText('COO, AUTO HAULER EXCHANGE', 86, divY + 68);
+  ctx.font = '700 11px Arial, sans-serif';
+  ctx.fillText('COO, AUTO HAULER EXCHANGE', 86, divY + 56);
 
-  // Cert ID
+  // Cert ID right
   ctx.textAlign = 'right';
   ctx.fillStyle = '#646a96';
-  ctx.font = '700 16px Arial, sans-serif';
-  ctx.fillText(cid, W-86, divY + 44);
-  ctx.font = '700 12px Arial, sans-serif';
-  ctx.fillText('ISSUED ' + today.toUpperCase(), W-86, divY + 68);
+  ctx.font = '700 14px Arial, sans-serif';
+  ctx.fillText(cid, W-86, divY + 36);
+  ctx.font = '700 11px Arial, sans-serif';
+  ctx.fillText('ISSUED ' + today.toUpperCase(), W-86, divY + 56);
 
-  // Open print window with image
+  // Open print window
   const imgData = canvas.toDataURL('image/png', 1.0);
   const win = window.open('', '_blank');
   if(win) {
@@ -740,17 +749,12 @@ logoImg.onload = function() {
 <title>Fraud Prevention Certificate</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{background:#1a1a1a;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:24px;}
-img{max-width:100%;width:100%;max-height:90vh;object-fit:contain;display:block;}
-.btn{margin-top:20px;padding:14px 36px;background:#E89700;color:#000;border:none;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-family:Arial,sans-serif;}
-@media print{
-  html,body{background:white;padding:0;margin:0;}
-  img{max-height:none;width:100%;}
-  .btn{display:none;}
-  @page{margin:0;size:landscape;}
-}
+html,body{background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
+img{width:100%;max-width:1100px;display:block;}
+.btn{margin-top:18px;padding:13px 32px;background:#E89700;color:#000;border:none;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-family:Arial,sans-serif;}
+@media print{html,body{background:white;padding:0;}.btn{display:none;}@page{margin:0;size:landscape;}}
 </style></head><body>
-<img src="${imgData}" alt="Fraud Prevention Certificate — ${fullName}">
+<img src="${imgData}" alt="Certificate">
 <button class="btn" onclick="window.print()">Save as PDF / Print</button>
 </body></html>`);
     win.document.close();
