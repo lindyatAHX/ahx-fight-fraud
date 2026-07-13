@@ -772,7 +772,7 @@ case 'complete': manualComplete(); break;
 case 'submit-cert-prompt': submitCertPrompt(); break;
 case 'skip-cert-prompt': closeCertPromptModal(); renderHub(); show('hub'); break;
 case 'ask-email': openEmailModal(); break;
-case 'open-terms': state._termsFrom = document.querySelector('.view.active')?.id?.replace('view-','') || 'hub'; state._termsModalOpen = document.getElementById('emailModal').classList.contains('open'); closeModal(); show('terms'); break;
+case 'open-terms': state._termsFrom = document.querySelector('.view.active')?.id?.replace('view-','') || 'hub'; state._termsModalOpen = document.getElementById('emailModal').classList.contains('open'); closeModal(); setTimeout(function(){ show('terms'); }, 200); break;
 case 'close-terms': show(state._termsFrom || 'hub'); if(state._termsModalOpen) setTimeout(openEmailModal, 320); break;
 case 'close-modal': closeModal(); break;
 case 'submit-email': submitEmail(); break;
