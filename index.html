@@ -490,8 +490,8 @@ note.textContent = i < EPISODES.length-1 ? 'Next session ready →' : 'All done 
 // Show blog link if available
 const blogLink = document.getElementById('epBlogLink');
 if(blogLink){
-if(e.blogUrl){
-blogLink.href = e.blogUrl;
+if(EPISODES[i].blogUrl){
+blogLink.href = EPISODES[i].blogUrl;
 blogLink.style.display = 'inline-block';
 } else {
 blogLink.style.display = 'none';
