@@ -322,6 +322,19 @@ let quizAnswers = {};
 const $ = s => document.querySelector(s);
 function isDone(i){ return state.completed.includes(i); }
 function allDone(){ return state.completed.length === EPISODES.length; }
+// Handle browser back button
+window.addEventListener('popstate', function(event){
+if(event.state && event.state.view === 'ep'){
+state.current = event.state.ep;
+renderEpisode();
+show('ep');
+} else {
+renderHub();
+show('hub');
+}
+});
+// Push initial hub state so back from ep returns to hub
+history.replaceState({view:'hub'}, '', '');
 function persist(){
 saveLocalState();
 }
@@ -591,6 +604,12 @@ watchedSeconds = 0;
 clearInterval(watchInterval);
 renderEpisode();
 show('ep');
+// Push history state so back button returns to hub
+if(window.self === window.top){
+history.pushState({view:'ep', ep:i}, '', '');
+} else {
+try { history.pushState({view:'ep', ep:i}, '', ''); } catch(e){}
+}
 requestAnimationFrame(function() {
 requestAnimationFrame(function() {
 scrollTop();
