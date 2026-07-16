@@ -322,6 +322,13 @@ let quizAnswers = {};
 const $ = s => document.querySelector(s);
 function isDone(i){ return state.completed.includes(i); }
 function allDone(){ return state.completed.length === EPISODES.length; }
+// Listen for messages from parent page
+window.addEventListener('message', function(e) {
+if(e.data && e.data.type === 'goHub') {
+renderHub();
+show('hub');
+}
+});
 // Handle browser back button
 window.addEventListener('popstate', function(event){
 if(event.state && event.state.view === 'ep'){
