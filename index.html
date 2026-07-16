@@ -331,6 +331,9 @@ show('ep');
 } else {
 renderHub();
 show('hub');
+if(window.self !== window.top){
+window.parent.postMessage({type:'popState'}, '*');
+}
 }
 });
 // Push initial hub state so back from ep returns to hub
@@ -609,6 +612,7 @@ if(window.self === window.top){
 history.pushState({view:'ep', ep:i}, '', '');
 } else {
 try { history.pushState({view:'ep', ep:i}, '', ''); } catch(e){}
+window.parent.postMessage({type:'pushState', view:'ep', ep:i}, '*');
 }
 requestAnimationFrame(function() {
 requestAnimationFrame(function() {
