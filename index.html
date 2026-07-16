@@ -412,7 +412,7 @@ pathBtn.setAttribute('data-action', '');
 function renderHub(){
 $('#trackCount').textContent = `${state.completed.length} / 8 complete`;
 $('#epList').innerHTML = EPISODES.map((e,i) => `
-<div class="ep-row ${isDone(i)?'done':''}" data-action="open-ep" data-ep="${i}">
+<div class="ep-row ${isDone(i)?'done':''}" data-action="open-ep" data-ep="${i}" onclick="openEp(${i})">
 <div class="ep-num">${String(i+1).padStart(2,'0')}</div>
 <div class="ep-main">
 <h4>${e.t}</h4>
