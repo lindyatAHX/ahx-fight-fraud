@@ -47,7 +47,7 @@ window.addEventListener('load', function(){ sendHeight(); setTimeout(sendHeight,
 <div class="wrap"><div class="epview"><aside class="sidebar" id="sidebar"></aside><div class="epmain"><div class="player-wrap" id="playerWrap"><iframe id="ytPlayer" width="380" height="675"
             src="" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen title="Fight Fraud Series Episode"></iframe></div><div class="ep-tag" id="epTag"></div><h2 id="epTitle"></h2><p class="desc" id="epDesc"></p><div class="takeaways" id="epTakeaways"></div><div class="quote" id="epQuote"></div><div class="ep-foot"><div class="ep-foot-left"><button class="btn btn-orange" id="completeBtn" data-action="complete"></button><span class="complete-note" id="completeNote"></span></div><div class="ep-nav"><button class="btn btn-outline btn-sm" data-action="prev">← Prev</button><button class="btn btn-outline btn-sm" data-action="next">Next →</button></div></div></div></div>
+            allowfullscreen title="Fight Fraud Series Episode"></iframe></div><div class="ep-tag" id="epTag"></div><h2 id="epTitle"></h2><p class="desc" id="epDesc"></p><div class="takeaways" id="epTakeaways"></div><div class="quote" id="epQuote"></div><div class="ep-foot"><div class="ep-foot-left"><button class="btn btn-orange" id="completeBtn" data-action="complete"></button><span class="complete-note" id="completeNote"></span><a id="epBlogLink" href="#" target="_blank" rel="noopener" style="display:none;margin-top:12px;font-family:var(--body);font-size:13px;font-weight:600;color:var(--orange);text-decoration:none;letter-spacing:.03em">Read the full post →</a></div><div class="ep-nav"><button class="btn btn-outline btn-sm" data-action="prev">← Prev</button><button class="btn btn-outline btn-sm" data-action="next">Next →</button></div></div></div></div>
 </div>
 </section><!-- ===================== QUIZ ===================== -->
 <section class="view" id="view-quiz">
@@ -131,6 +131,7 @@ const EPISODES = [
 {
 t: "The Fraud Landscape: What Dealers Are Actually Facing",
 vid: 1206179931,
+blogUrl: "https://www.autohaulerexchange.com/blog/vehicle-transport-fraud-rising-risk-dealers",
 dur: "1:45",
 d: "Overall cargo theft in the U.S. is up 1,500% from 2021. Dana breaks down the three schemes driving the surge — and what fraud really costs beyond the vehicle.",
 quote: "The vehicle is the headline loss. The hidden losses — the floorplan interest, the lost sale, the customer who already bought that car — those are what hurt for months.",
@@ -144,6 +145,7 @@ takeaways: [
 {
 t: "Double Brokering: How Your Load Gets Re-Sold Without Your Knowledge",
 vid: 1206180692,
+blogUrl: "https://www.autohaulerexchange.com/blog/double-brokering-load-re-sold-without-knowledge",
 dur: "2:46",
 d: "The most common fraud scheme — designed to look legitimate at every step. Dana explains how a load gets secretly re-sold and where your vehicle ends up.",
 quote: "It is extremely important that the owner of this vehicle is in clear communication with that releasing dealership or releasing auction. They need to know where the delivery location is.",
@@ -157,6 +159,7 @@ takeaways: [
 {
 t: "How Bad Actors Impersonate Real Carriers",
 vid: 1206181230,
+blogUrl: "https://www.autohaulerexchange.com/blog/carrier-identity-fraud-auto-transport",
 dur: "2:03",
 d: "AI makes fake carrier documentation easy. Dana covers how fraudsters steal carrier identities and what to verify before releasing any vehicle.",
 quote: "Never release a vehicle where it almost matches. Use a single checklist. If someone's out — maybe your day-to-day person is missing for the day — make sure there's a checklist there so it's easy for everyone to follow.",
@@ -170,6 +173,7 @@ takeaways: [
 {
 t: "Payment Fraud: The Schemes That Hit After Your Vehicle Is Already Moving",
 vid: 1206181840,
+blogUrl: "https://www.autohaulerexchange.com/blog/payment-fraud-vehicle-transport-schemes",
 dur: "1:14",
 d: "Payment fraud hits after the vehicle is moving. Dana covers hostage vehicles, fake damage claims, and the payment practices that make dealers easy targets.",
 quote: "One of them is just a straight-up hostage vehicle. They won't give you the vehicle until you pay more.",
@@ -183,6 +187,7 @@ takeaways: [
 {
 t: "How to Actually Vet a Carrier",
 vid: 1206184331,
+blogUrl: "https://www.autohaulerexchange.com/blog/how-to-vet-a-carrier-auto-transport",
 dur: "1:42",
 d: "A one-time check is not vetting. Dana covers FMCSA verification, AHX's 30% approval rate, and why continuous monitoring is the real defense.",
 quote: "You may have found a carrier you work great with. Everything is good. But things happen — insurance falls off, insurance coverage lapses. You wanna make sure you're working with a company that has continuous monitoring.",
@@ -196,6 +201,7 @@ takeaways: [
 {
 t: "The Red Flags That Show Up Before a Vehicle Ever Moves",
 vid: 1206185326,
+blogUrl: "https://www.autohaulerexchange.com/blog/vehicle-transport-fraud-red-flags",
 dur: "2:05",
 d: "Fraud announces itself before a vehicle moves. Dana covers six communication red flags and the questions fraudsters can't answer.",
 quote: "If you're getting conflicting pickup times, that's an immediate red flag. If the dispatcher goes unresponsive for the day of pickup — these are red flags that the fraud has already occurred or is about to happen.",
@@ -209,6 +215,7 @@ takeaways: [
 {
 t: "What Happens After Vehicle Transport Fraud",
 vid: 1206187036,
+blogUrl: "https://www.autohaulerexchange.com/blog/what-happens-after-vehicle-transport-fraud",
 dur: "2:32",
 d: "If a vehicle goes missing, who do you call? Dana covers exactly what to do — including one critical detail most people don't know about OnStar.",
 quote: "You can't rely on a third party. You can't rely on the releasing dealership or the releasing auction. It's really gotta be you getting in touch with local law enforcement.",
@@ -222,6 +229,7 @@ takeaways: [
 {
 t: "Stop Vehicle Transport Fraud Before It Starts: Building the System",
 vid: 1206187786,
+blogUrl: "https://www.autohaulerexchange.com/blog/vehicle-transport-fraud-prevention-checklist",
 dur: "2:26",
 d: "Fraud prevention built on one person fails when they're out. Dana covers fraud control checklists, the most common communication gap, and how dealer groups standardize protection.",
 quote: "If you feel uncomfortable releasing a vehicle — you can always deny that carrier. You do not have to release those vehicles. You have a hand in there and you can really stop the fraud before it happens.",
@@ -479,17 +487,31 @@ btn.textContent = '✓ Session Complete';
 btn.className = 'btn btn-outline-orange';
 btn.disabled = false;
 note.textContent = i < EPISODES.length-1 ? 'Next session ready →' : 'All done — take the knowledge check';
+// Show blog link if available
+const blogLink = document.getElementById('epBlogLink');
+if(blogLink){
+if(e.blogUrl){
+blogLink.href = e.blogUrl;
+blogLink.style.display = 'inline-block';
+} else {
+blogLink.style.display = 'none';
+}
+}
 } else if(hasWatchedEnough()){
 btn.textContent = 'Mark as complete';
 btn.className = 'btn btn-orange';
 btn.disabled = false;
 note.textContent = 'Auto-completes when video ends';
+const blogLink = document.getElementById('epBlogLink');
+if(blogLink) blogLink.style.display = 'none';
 } else {
 btn.textContent = 'Mark as complete';
 btn.className = 'btn btn-orange';
 btn.disabled = true;
 btn.style.opacity = '0.4';
 note.textContent = 'Watch to unlock';
+const blogLink = document.getElementById('epBlogLink');
+if(blogLink) blogLink.style.display = 'none';
 }
 if (!btn.disabled) btn.style.opacity = '';
 }
