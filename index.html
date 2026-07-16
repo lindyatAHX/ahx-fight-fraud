@@ -56,14 +56,8 @@ window.addEventListener('load', function(){ sendHeight(); setTimeout(sendHeight,
 </section><!-- ===================== CERTIFICATE ===================== -->
 <section class="view" id="view-cert">
 <div class="wrap"><div class="certview"><div class="cert-shell" id="certShell"></div></div></div>
-</section></main>
-<!-- CERT PROMPT MODAL (shown when just-watch user finishes all 8) -->
-<div class="modal" id="certPromptModal">
-<div class="sheet"><h3>You finished the series.</h3><p>Enter your details to take the knowledge check and earn your Fraud Prevention certificate and Vehicle Release Checklist.</p><label class="field"><span>Email address</span><input type="email" id="certEmailInput" placeholder="you@dealership.com" autocomplete="email"></label><label class="field"><span>First name</span><input type="text" id="certFirstInput" placeholder="Jordan"></label><label class="field"><span>Last name</span><input type="text" id="certLastInput" placeholder="Vega"></label><div class="err" id="certPromptErr"></div><button class="btn btn-orange" data-action="submit-cert-prompt" style="width:100%;text-align:center">Get my certificate</button><p class="fine" style="margin-top:14px">Or <button style="background:none;border:none;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:12px;padding:0" data-action="skip-cert-prompt">skip and go back to the series</button></p>
-</div>
-</div>
-
-<div class="view" id="view-terms">
+</section>
+<section class="view" id="view-terms">
 <div class="wrap" style="padding-top:54px;padding-bottom:90px;max-width:740px;margin:0 auto">
 <div class="eyebrow" style="margin-bottom:24px">
 <span style="font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:15px;color:var(--orange)">Terms of Use</span>
@@ -72,7 +66,13 @@ window.addEventListener('load', function(){ sendHeight(); setTimeout(sendHeight,
 <p style="color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:16px">By viewing the Fight Fraud Series, viewer acknowledges and agrees that the Fight Fraud Series is for informational purposes only. Any information provided by Auto Hauler Exchange is not, and shall not be considered, advice, a recommendation and/or be construed in any way as a warranty, guarantee and/or promise. Such information may be used by viewer in their sole discretion and at their sole risk. No particular results should be expected by the viewer. Auto Hauler Exchange is not and will not be responsible and/or liable for any use of the information provided herein and hereby disclaims any and all warranties, express and/or implied whatsoever.</p>
 <button class="btn btn-outline" data-action="close-terms" style="margin-top:24px">Back to series</button>
 </div>
+</section></main>
+<!-- CERT PROMPT MODAL (shown when just-watch user finishes all 8) -->
+<div class="modal" id="certPromptModal">
+<div class="sheet"><h3>You finished the series.</h3><p>Enter your details to take the knowledge check and earn your Fraud Prevention certificate and Vehicle Release Checklist.</p><label class="field"><span>Email address</span><input type="email" id="certEmailInput" placeholder="you@dealership.com" autocomplete="email"></label><label class="field"><span>First name</span><input type="text" id="certFirstInput" placeholder="Jordan"></label><label class="field"><span>Last name</span><input type="text" id="certLastInput" placeholder="Vega"></label><div class="err" id="certPromptErr"></div><button class="btn btn-orange" data-action="submit-cert-prompt" style="width:100%;text-align:center">Get my certificate</button><p class="fine" style="margin-top:14px">Or <button style="background:none;border:none;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:12px;padding:0" data-action="skip-cert-prompt">skip and go back to the series</button></p>
 </div>
+</div>
+
 <div class="modal" id="emailModal">
 <div class="sheet"><button class="modal-x" data-action="close-modal" aria-label="Close">×</button><h3 id="modalTitle">Save your progress</h3><p id="modalSub">Enter your email to track your progress and earn your Fraud Prevention certificate. Your progress is also saved in this browser.</p><label class="field"><span>Email address</span><input type="email" id="emailInput" placeholder="you@dealership.com" autocomplete="email"></label><div class="err" id="emailErr"></div><button class="btn btn-orange" data-action="submit-email">Save &amp; continue</button><p class="fine">Your email will be used to save your progress and issue your certificate. We may also send you relevant fraud prevention content from Auto Hauler Exchange. By entering your email you agree to our <button style="background:none;border:none;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:12px;padding:0;font-family:inherit" data-action="open-terms">Terms of Use</button>.</p>
 </div>
