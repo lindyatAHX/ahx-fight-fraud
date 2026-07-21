@@ -96,7 +96,7 @@ body: JSON.stringify(body)
 }).catch(err => console.warn('HubSpot submit error:', err));
 }
 function hsAccountCreated(email) {
-const now = new Date().toISOString().split('T')[0]; 
+const now = new Date().setHours(0,0,0,0);
 hsSubmit(HS.forms.accountCreated, {
 email,
 fight_fraud_account_created: now,
@@ -107,7 +107,7 @@ fight_fraud_last_active: now
 }
 function hsEpisodeCompleted(email, episodesCompleted, currentEpisode) {
 if (!email) return;
-const now = new Date().toISOString().split('T')[0];
+const now = new Date().setHours(0,0,0,0);
 hsSubmit(HS.forms.episodeCompleted, {
 email,
 fight_fraud_episodes_completed: String(episodesCompleted),
@@ -117,7 +117,7 @@ fight_fraud_last_active: now
 }
 function hsCertificateEarned(email, firstName, lastName) {
 if (!email) return;
-const now = new Date().toISOString().split('T')[0];
+const now = new Date().setHours(0,0,0,0);
 hsSubmit(HS.forms.certificateEarned, {
 email,
 firstname: firstName,
