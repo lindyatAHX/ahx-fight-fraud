@@ -637,7 +637,7 @@ state.quizPassed = true;
 persist();
 $('#quizMsg').className = 'quiz-msg good';
 $('#quizMsg').textContent = `${correct}/5 correct — certificate earned.`;
-setTimeout(() => { renderCert(); show('cert'); renderStatus(); renderHub(); scrollTop(); }, 900);
+setTimeout(() => { renderCert(); show('cert'); renderStatus(); renderHub(); scrollTop(); if(window.self!==window.top){ setTimeout(sendHeight,500); setTimeout(sendHeight,1000); setTimeout(sendHeight,2000); } }, 900);
 } else {
 $('#quizMsg').className = 'quiz-msg bad';
 $('#quizMsg').textContent = `${correct}/5 — you need at least 4. Review the sessions and try again.`;
@@ -811,7 +811,7 @@ case 'close-terms': show(state._termsFrom || 'hub'); break;
 case 'close-modal': closeModal(); break;
 case 'submit-email': submitEmail(); break;
 case 'goto-quiz': renderQuiz(); show('quiz'); break;
-case 'goto-cert': renderCert(); show('cert'); scrollTop(); break;
+case 'goto-cert': renderCert(); show('cert'); scrollTop(); if(window.self!==window.top){ setTimeout(sendHeight,500); setTimeout(sendHeight,1000); setTimeout(sendHeight,2000); } break;
 case 'grade': gradeQuiz(); break;
 case 'pick':
 quizAnswers[t.dataset.q] = parseInt(t.dataset.o, 10);
